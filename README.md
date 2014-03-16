@@ -13,4 +13,4 @@ Basado en [Fort Awesome](https://github.com/FortAwesome/Font-Awesome/) de [Dave 
 ## License
 
 * La iconografía de las estaciones del metro se encuentran registradas ante el Instituto Nacional de Derechos de Autor. Se prohíbe su uso, reproducción, modificación o comercialización sin permiso escrito del [Sistema de Transporte Colectivo](http://www.metro.df.gob.mx/).
-* Los archivos CSS y SASS de ui-transport-mx estan bajo la  [licencia MIT](http://opensource.org/licenses/mit-license.html)
+* Los archivos CSS y SASS de icons-metro-df estan bajo la  [licencia MIT](http://opensource.org/licenses/mit-license.html)
