@@ -1,0 +1,268 @@
+@import "compass";
+@import "mixins";
+@import "flex";
+@import "variables";
+// Colores Mexibus
+
+
+$border-color: white;
+$border-radius: 9px;
+ul[data-change="order"]{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	list-style-position: inside;
+	font-family: Helvetica;
+	font-weight: lighter;
+	font-size: 1.4em;
+	background-position: 36px 30px;
+	background-repeat: no-repeat;
+	// @include border-radius($border-radius);
+	@include background-size(4px 100%);
+	&.list_linea_1{
+		@include background-image(linear-gradient(left top, $color-metro-linea_1, $color-metro-linea_1));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_1);
+			background-color:$color-metro-linea_1;
+		}
+	}
+	&.list_linea_2{
+		@include background-image(linear-gradient(left top, $color-metro-linea_2, $color-metro-linea_2));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_2);
+			background-color:$color-metro-linea_2;
+		}
+	}
+	&.list_linea_3{
+		@include background-image(linear-gradient(left top, $color-metro-linea_3, $color-metro-linea_3));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_3);
+			background-color:$color-metro-linea_3;
+		}
+	}
+	&.list_linea_4{
+		@include background-image(linear-gradient(left top, $color-metro-linea_4, $color-metro-linea_4));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_4);
+			background-color:$color-metro-linea_4;
+		}
+	}
+	&.list_linea_5{
+		@include background-image(linear-gradient(left top, $color-metro-linea_5, $color-metro-linea_5));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_5);
+			background-color:$color-metro-linea_5;
+		}
+	}
+	&.list_linea_6{
+		@include background-image(linear-gradient(left top, $color-metro-linea_6, $color-metro-linea_6));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_6);
+			background-color:$color-metro-linea_6;
+		}
+	}
+	&.list_linea_7{
+		@include background-image(linear-gradient(left top, $color-metro-linea_7, $color-metro-linea_7));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_7);
+			background-color:$color-metro-linea_7;
+		}
+	}
+	&.list_linea_8{
+		@include background-image(linear-gradient(left top, $color-metro-linea_8, $color-metro-linea_8));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_8);
+			background-color:$color-metro-linea_8;
+		}
+	}
+	&.list_linea_9{
+		@include background-image(linear-gradient(left top, $color-metro-linea_9, $color-metro-linea_9));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_9);
+			background-color:$color-metro-linea_9;
+		}
+	}
+	&.list_linea_A{
+		@include background-image(linear-gradient(left top, $color-metro-linea_A, $color-metro-linea_A));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_A);
+			background-color:$color-metro-linea_A;
+		}
+	}
+	&.list_linea_B{
+		@include background-image(linear-gradient(left top, $color1-metro-linea_B $color1-metro-linea_B));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color1-metro-linea_B);
+			@include background(linear-gradient(top, $color2-metro-linea_B 50%, $color1-metro-linea_B 50%));
+		}
+	}
+	&.list_linea_12{
+		@include background-image(linear-gradient(left top, $color-metro-linea_12, $color-metro-linea_12));
+		span.circle{
+			@include box-shadow(0 0 0 4px $color-metro-linea_12);
+			@include background-image(linear-gradient(left top, $color-metro-linea_12, $color-metro-linea_12));
+		}
+	}
+
+
+	//Agregar clase para invierte la direccion de la lista ul[data-change='order']
+	&.reverse{
+		@include flexbox;
+		@include flex-flow(column-reverse wrap);
+		li{
+			&:first-child{
+				@include border-radius(0 0 $border-radius $border-radius);
+				border-bottom:0 none;
+			}
+			&:last-child{
+				@include border-radius($border-radius $border-radius 0 0);
+				border-bottom:1px solid $border-color;
+			}
+		}
+	}
+	li{
+		height: 90px;
+		a{
+			b{
+				margin-left: 20px;
+				display: inline-block;
+				border:1px solid red;
+				width: 80%;
+				font-weight: 100;
+				margin-top: 20px;
+				line-height: 80px;
+			}
+			display: inline-block;
+			width: 100%;
+			text-decoration: none;
+			color: #444;
+		}
+		&:first-child{
+			@include border-radius($border-radius $border-radius 0 0);
+		}
+		&:last-child{
+			border-bottom:0 none transparent;
+			@include border-radius(0 0 $border-radius $border-radius);
+		}
+	}
+}
+.pull-right{
+	float: right;
+}
+
+
+span.circle{
+	position: relative;
+	@include border-radius(30px);
+	border:3px solid white;
+	width: 50px;
+	height: 50px;
+	text-align:center;
+	display: inline-block;
+	top:10px;
+	left:10px;
+	em{
+		color:white !important;
+		line-height: 50px;
+		font-size: 1.8em;
+	}
+}
+
+ul[class^="linea"]{
+	margin: 0;
+	padding: 0;
+	li{
+		display: inline-block;
+		margin: 0;
+		list-style-position: inside;
+		list-style-type: none;
+		@include border-radius(0 10px 0 0);
+		@include transition(all, 0.2s, ease);
+		&:hover{
+			@include scale(1.4);
+			padding: 0.2em;
+		}
+		em{
+			color:white;
+		}
+	}
+}
+
+
+.linea_1{
+	li{
+		background-color: $color-metro-linea_1;
+		border:1px solid $color-metro-linea_1;
+	}
+}
+.linea_2{
+	li{
+		background-color: $color-metro-linea_2;
+		border:1px solid $color-metro-linea_2;
+	}
+}
+.linea_3{
+	li{
+		background-color: $color-metro-linea_3;
+		border:1px solid $color-metro-linea_3;
+	}
+}
+
+.linea_4{
+	li{
+		background-color: $color-metro-linea_4;
+		border:1px solid $color-metro-linea_4;
+	}
+}
+.linea_5{
+	li{
+		background-color: $color-metro-linea_5;
+		border:1px solid $color-metro-linea_5;
+	}
+}
+.linea_6{
+	li{
+		background-color: $color-metro-linea_6;
+		border:1px solid $color-metro-linea_6;
+	}
+}
+.linea_7{
+	li{
+		background-color: $color-metro-linea_7;
+		border:1px solid $color-metro-linea_7;
+	}
+}
+.linea_8{
+	li{
+		background-color: $color-metro-linea_8;
+		border:1px solid $color-metro-linea_8;
+	}
+}
+.linea_9{
+	li{
+		background-color: $color-metro-linea_9;
+		border:1px solid $color-metro-linea_9;
+	}
+}
+.linea_A{
+	li{
+		background-color: $color-metro-linea_A;
+		border:1px solid $color-metro-linea_A;
+	}
+}
+.linea_B{
+	li{
+		@include background(linear-gradient(top, $color2-metro-linea_B 50%, $color1-metro-linea_B 50%));
+	}
+}
+.linea_12{
+	li{
+		background-color: $color-metro-linea_12;
+		border:1px solid $color-metro-linea_12;
+	}
+}
+.linea_suburbano{
+	li{
+		background-color: $color-suburbano-linea;
+	}
+}

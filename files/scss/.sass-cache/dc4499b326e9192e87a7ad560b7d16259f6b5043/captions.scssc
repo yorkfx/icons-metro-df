@@ -1,0 +1,679 @@
+3.2.10 (Media Mark)
+697b47a4a072475d4cd1b99a48e51f3b3296a687
+o:Sass::Tree::RootNode
+:@template"Í @import "../_variables";
+
+.effeckt-caption {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+  img {
+    transition: $effeckt-caption-transition-duration;
+  }
+  figcaption {
+    position: absolute;
+    transition: $effeckt-caption-transition-duration;
+    width: 100%;
+  }
+
+  // Effect 1: Appear
+  &[data-effeckt-type="quarter-appear"] {
+    figcaption {
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+    }
+    &:hover, &:active {
+      figcaption {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  // Effect 2: Quarter Slide Up
+  &[data-effeckt-type="quarter-slide-up"] {
+    figcaption {
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    &:hover, &:active {
+      figcaption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+
+  // Effect 3: Sqwoosh
+  &[data-effeckt-type="sqkwoosh"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: none;
+      z-index: 0;
+    }
+    img {
+      position: relative;
+      z-index: 1;
+      transition-delay: 0.25s;
+    }
+    .effeckt-figcaption-wrap {
+      position: absolute;
+      bottom: 1rem;
+      opacity: 0;
+      transition: opacity 0.25s linear 0s;
+    }
+    &:hover, &:active {
+      .effeckt-figcaption-wrap {
+        opacity: 1;
+        transition-delay: 0.25s;
+      }
+      img {
+        transform: scale(0.5) translateY(-80px);
+        transition-delay: 0;
+      }
+    }
+  }
+
+
+  // Effect 4: Quarter Slide Side
+  &[data-effeckt-type="quarter-slide-side"] {
+    figcaption {
+      left: 0;
+      bottom: 0;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    &:hover, &:active {
+      figcaption {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+
+  // Effect 5: Cover Fade
+  &[data-effeckt-type="cover-fade"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      height: 100%;
+      opacity: 0;
+    }
+    &:hover, &:active {
+      figcaption {
+        opacity: 1;
+      }
+    }
+  }
+
+
+  // Effect 6 - Quarter Fall in
+  &[data-effeckt-type="quarter-fall-in"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      transform: translateX(100%) rotate(20deg);
+      opacity: 0;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+      }
+    }
+  }
+
+
+  // Effect 7 - 3Quarter Two Step
+  &[data-effeckt-type="quarter-two-step"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      opacity: 0;
+      z-index: 2;
+    }
+    .effeckt-figcaption-wrap {
+      transition: $effeckt-caption-transition-duration $effeckt-caption-transition-duration/2;
+      transform: translateX(200%);
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      .effeckt-figcaption-wrap {
+        transform: translateX(0);
+      }
+    }
+  }
+
+
+  // Effect 8 - Cover Push Right
+  &[data-effeckt-type="cover-push-right"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      height: 100%;
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    img {
+      transition: $effeckt-caption-transition-duration;
+      transform: translateX(0);
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: translateX(0);
+        opacity: 1;
+      }
+      img {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  // Effect 15 - Cover Slide Top
+  &[data-effeckt-type="cover-slide-top"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      height: 100%;
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    img {
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  }
+
+
+  // Effect 9 - Quarter Caption Zoom
+  &[data-effeckt-type="quarter-zoom"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      transform: scale(2);
+      text-align: center;
+      opacity: 0;
+    }
+    img {
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: scale(1);
+        opacity: 1;
+      }
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+
+  // Effect 10 - Revolving Door
+  // BUG: Super flickery in Safari 5.1.7 on Windows 7
+  &[data-effeckt-type="revolving-door-left"] {
+    overflow: visible;
+    figcaption {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: perspective(1300px) rotateY(180deg);
+      backface-visibility: hidden;
+    }
+    img {
+      transform: perspective(1300px);
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: perspective(1300px) rotateY(0deg);
+      }
+      img {
+        transform: perspective(1300px) rotateY(-180deg);
+      }
+    }
+  }
+
+  &[data-effeckt-type="revolving-door-right"] {
+    overflow: visible;
+    figcaption {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: perspective(1300px) rotateY(180deg);
+      backface-visibility: hidden;
+    }
+    img {
+      transform: perspective(1300px);
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: perspective(1300px) rotateY(360deg);
+      }
+      img {
+        transform: perspective(1300px) rotateY(180deg);
+      }
+    }
+  }
+
+  &[data-effeckt-type="revolving-door-top"] {
+    overflow: visible;
+    figcaption {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: perspective(1300px) rotateX(180deg);
+      backface-visibility: hidden;
+    }
+    img {
+      transform: perspective(1300px);
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: perspective(1300px) rotateX(360deg);
+      }
+      img {
+        transform: perspective(1300px) rotateX(180deg);
+      }
+    }
+  }
+
+  &[data-effeckt-type="revolving-door-bottom"] {
+    overflow: visible;
+    figcaption {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: perspective(1300px) rotateX(180deg);
+      backface-visibility: hidden;
+    }
+    img {
+      transform: perspective(1300px);
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: perspective(1300px) rotateX(0deg);
+      }
+      img {
+        transform: perspective(1300px) rotateX(-180deg);
+      }
+    }
+  }
+
+  // Effect 11 - Caption Offset
+  &[data-effeckt-type="offset"] {
+    overflow: visible;
+    figcaption {
+      top: 0;
+      left: 0;
+      text-align: center;
+      opacity: 0;
+      height: 100%;
+    }
+    img {
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      figcaption {
+        transform: translate(15px, 15px);
+        opacity: 1;
+        z-index: 100; //prevent ovarslap
+        overflow: hidden;
+      }
+    }
+  }
+  // Effect 12 - Guillotine Reverse / Reveal Up
+  &[data-effeckt-type="guillotine-reverse"] {
+    overflow: visible;
+    figcaption {
+      top: 0;
+      left: 0;
+      text-align: center;
+      height: 100%;
+    }
+    img {
+      display: block;
+      position:relative;
+      z-index:10;
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      img {
+        transform: translateY(-100%);
+      }
+    }
+  }
+  // Effect 13 - Half Slide
+  &[data-effeckt-type="half-slide"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      text-align: center;
+      height: 100%;
+      transform: translateY(100%);
+    }
+    img {
+      display: block;
+      position:relative;
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      img {
+        transform: translateY(-50%);
+      }
+      figcaption {
+        transform: translateY(50%);
+      }
+    }
+  }
+
+  // Effect 14 - Tunnel
+  &[data-effeckt-type="tunnel"] {
+    figcaption {
+      top: 0;
+      left: 0;
+      text-align: center;
+      height: 100%;
+      opacity: 0;
+      transform: scale(0.7);
+    }
+    img {
+      display: block;
+      position:relative;
+      z-index: 10;
+      transition: $effeckt-caption-transition-duration;
+    }
+    &:hover, &:active {
+      img {
+        transform: scale(0.4);
+      }
+      figcaption {
+        opacity:1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+:@options{ :@has_childrenT:@children[o:Sass::Tree::ImportNode;0;@:@imported_file0;	[ :@imported_filename"../_variables:
+@lineio:Sass::Tree::RuleNode:
+@tabsi ;@:
+@rule[".effeckt-caption:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;[o:#Sass::Selector::SimpleSequence
+;[o:Sass::Selector::Class:
+@name["effeckt-caption:@filename" ;i:@subject0;@:@sourceso:Set:
+@hash{ ;i;@;i;T;	[,o:Sass::Tree::PropNode;i ;@;["position:@prop_syntax:new:@valueo:Sass::Script::String;@; "relative:
+@type:identifier;	[ ;i	o;;i ;@;["
+float;;; o;!;@; "	left;";#;	[ ;i
+o;;i ;@;["overflow;;; o;!;@; "hidden;";#;	[ ;io;;i ;@;["&:nth-child(2n);o;;[o;;[o;
+;[o:Sass::Selector::Parent;" ;io:Sass::Selector::Pseudo
+;["nth-child;@8;":
+class;i:	@arg["2n;0;@8;o;;{ ;i;@8;i;T;	[o;;i ;@;["margin-right;;; o;!;@; "0;";#;	[ ;i;io;;i ;@;["img;o;;[o;;[o;
+;[o:Sass::Selector::Element	;["img:@namespace0;" ;i;0;@S;o;;{ ;i;@S;i;T;	[o;;i ;@;["transition;;; o:Sass::Script::Variable	;@;"(effeckt-caption-transition-duration:@underscored_name"(effeckt_caption_transition_duration;i;	[ ;i;io;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i;0;@j;o;;{ ;i;@j;i;T;	[o;;i ;@;["position;;; o;!;@; "absolute;";#;	[ ;io;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i;	[ ;io;;i ;@;["
+width;;; o;!;@; "	100%;";#;	[ ;i;io:Sass::Tree::CommentNode
+;@; ["/* Effect 1: Appear */;":silent;	[ ;io;;i ;@;["*&[data-effeckt-type="quarter-appear"];o;;[o;;[o;
+;[o;$;" ;io:Sass::Selector::Attribute:@operator"=;["data-effeckt-type; [""quarter-appear";)0;@ä:@flags0;i;0;@ä;o;;{ ;i;@ä;i;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i;0;@†;o;;{ ;i;@†;i;T;	[o;;i ;@;["bottom;;; o;!;@; "0;";#;	[ ;io;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;io;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;i;io;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;io;%
+;["
+hover;@¿;";&;i;'0;0;@¿;o;;{ ;io;;[o;
+;[o;$;@¿;io;%
+;["active;@¿;";&;i;'0;0;@¿;o;;{ ;i;@¿;i;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i ;0;@›;o;;{ ;i ;@›;i ;T;	[o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;i!;i ;i;io;,
+;@; ["%/* Effect 2: Quarter Slide Up */;";-;	[ ;i'o;;i ;@;[",&[data-effeckt-type="quarter-slide-up"];o;;[o;;[o;
+;[o;$;" ;i(o;.;/"=;["data-effeckt-type; [""quarter-slide-up";)0;@ı;00;i(;0;@ı;o;;{ ;i(;@ı;i(;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i);0;@;o;;{ ;i);@;i);T;	[	o;;i ;@;["bottom;;; o;!;@; "0;";#;	[ ;i*o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;i+o;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;i,o;;i ;@;["transform;;; o:Sass::Script::Funcall:@keywords{ ;@;"translateY:@splat0:
+@args[o:Sass::Script::Number:@denominator_units[ ;@:@numerator_units["%:@original"	100%; ii;i-;i-;	[ ;i-;i)o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;i/o;%
+;["
+hover;@8;";&;i/;'0;0;@8;o;;{ ;i/o;;[o;
+;[o;$;@8;i/o;%
+;["active;@8;";&;i/;'0;0;@8;o;;{ ;i/;@8;i/;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i0;0;@U;o;;{ ;i0;@U;i0;T;	[o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;i1o;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7[ ;8"0; i ;i2;i2;	[ ;i2;i0;i/;i(o;,
+;@; ["/* Effect 3: Sqwoosh */;";-;	[ ;i8o;;i ;@;["$&[data-effeckt-type="sqkwoosh"];o;;[o;;[o;
+;[o;$;" ;i9o;.;/"=;["data-effeckt-type; [""sqkwoosh";)0;@y;00;i9;0;@y;o;;{ ;i9;@y;i9;T;	[	o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i:;0;@è;o;;{ ;i:;@è;i:;T;	[o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;i;o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;i<o;;i ;@;["
+width;;; o;!;@; "	100%;";#;	[ ;i=o;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;i>o;;i ;@;["transition;;; o;!;@; "	none;";#;	[ ;i?o;;i ;@;["z-index;;; o;!;@; "0;";#;	[ ;i@;i:o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iB;0;@√;o;;{ ;iB;@√;iB;T;	[o;;i ;@;["position;;; o;!;@; "relative;";#;	[ ;iCo;;i ;@;["z-index;;; o;!;@; "1;";#;	[ ;iDo;;i ;@;["transition-delay;;; o;!;@; "
+0.25s;";#;	[ ;iE;iBo;;i ;@;[".effeckt-figcaption-wrap;o;;[o;;[o;
+;[o;;["effeckt-figcaption-wrap;" ;iG;0;@Â;o;;{ ;iG;@Â;iG;T;	[	o;;i ;@;["position;;; o;!;@; "absolute;";#;	[ ;iHo;;i ;@;["bottom;;; o;!;@; "	1rem;";#;	[ ;iIo;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iJo;;i ;@;["transition;;; o;!;@; "opacity 0.25s linear 0s;";#;	[ ;iK;iGo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iMo;%
+;["
+hover;@;";&;iM;'0;0;@;o;;{ ;iMo;;[o;
+;[o;$;@;iMo;%
+;["active;@;";&;iM;'0;0;@;o;;{ ;iM;@;iM;T;	[o;;i ;@;[".effeckt-figcaption-wrap;o;;[o;;[o;
+;[o;;["effeckt-figcaption-wrap;" ;iN;0;@(;o;;{ ;iN;@(;iN;T;	[o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;iOo;;i ;@;["transition-delay;;; o;!;@; "
+0.25s;";#;	[ ;iP;iNo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iR;0;@D;o;;{ ;iR;@D;iR;T;	[o;;i ;@;["transform;;; o:Sass::Script::List	;@; [o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"0.5; f0.5;iS;iSo;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7["px;8"
+-80px; i´;iS;iS:@separator:
+space;iS;	[ ;iSo;;i ;@;["transition-delay;;; o;!;@; "0;";#;	[ ;iT;iR;iM;i9o;,
+;@; ["'/* Effect 4: Quarter Slide Side */;";-;	[ ;iZo;;i ;@;[".&[data-effeckt-type="quarter-slide-side"];o;;[o;;[o;
+;[o;$;" ;i[o;.;/"=;["data-effeckt-type; [""quarter-slide-side";)0;@s;00;i[;0;@s;o;;{ ;i[;@s;i[;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i\;0;@â;o;;{ ;i\;@â;i\;T;	[	o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;i]o;;i ;@;["bottom;;; o;!;@; "0;";#;	[ ;i^o;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;i_o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6[ ;@;7["%;8"	100%; ii;i`;i`;	[ ;i`;i\o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;ibo;%
+;["
+hover;@∂;";&;ib;'0;0;@∂;o;;{ ;ibo;;[o;
+;[o;$;@∂;ibo;%
+;["active;@∂;";&;ib;'0;0;@∂;o;;{ ;ib;@∂;ib;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;ic;0;@”;o;;{ ;ic;@”;ic;T;	[o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;ido;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6@g;@;7[ ;8"0; i ;ie;ie;	[ ;ie;ic;ib;i[o;,
+;@; ["/* Effect 5: Cover Fade */;";-;	[ ;iko;;i ;@;["&&[data-effeckt-type="cover-fade"];o;;[o;;[o;
+;[o;$;" ;ilo;.;/"=;["data-effeckt-type; [""cover-fade";)0;@ˆ;00;il;0;@ˆ;o;;{ ;il;@ˆ;il;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;im;0;@;o;;{ ;im;@;im;T;	[	o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;ino;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;ioo;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;ipo;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iq;imo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iso;%
+;["
+hover;@2;";&;is;'0;0;@2;o;;{ ;iso;;[o;
+;[o;$;@2;iso;%
+;["active;@2;";&;is;'0;0;@2;o;;{ ;is;@2;is;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;it;0;@O;o;;{ ;it;@O;it;T;	[o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;iu;it;is;ilo;,
+;@; ["%/* Effect 6 - Quarter Fall in */;";-;	[ ;i{o;;i ;@;["+&[data-effeckt-type="quarter-fall-in"];o;;[o;;[o;
+;[o;$;" ;i|o;.;/"=;["data-effeckt-type; [""quarter-fall-in";)0;@g;00;i|;0;@g;o;;{ ;i|;@g;i|;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i};0;@};o;;{ ;i};@};i};T;	[	o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;i~o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;io;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"translateX;30;4[o;5;6[ ;@;7["%;8"	100%; ii;i{;i{o;1;2{ ;@;"rotate;30;4[o;5;6[ ;@;7["deg;8"
+20deg; i;i{;i{;:;;;i{;	[ ;i{o;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;i|;i}o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;i~o;%
+;["
+hover;@µ;";&;i~;'0;0;@µ;o;;{ ;i~o;;[o;
+;[o;$;@µ;i~o;%
+;["active;@µ;";&;i~;'0;0;@µ;o;;{ ;i~;@µ;i~;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i;0;@“;o;;{ ;i;@“;i;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"translateX;30;4[o;5;6@g;@;7[ ;8"0; i ;iÄ;iÄo;1;2{ ;@;"rotate;30;4[o;5;6[ ;@;7["deg;8"	0deg; i ;iÄ;iÄ;:;;;iÄ;	[ ;iÄo;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;iÅ;i;i~;i|o;,
+;@; ["'/* Effect 7 - 3Quarter Two Step */;";-;	[ ;iáo;;i ;@;[",&[data-effeckt-type="quarter-two-step"];o;;[o;;[o;
+;[o;$;" ;iào;.;/"=;["data-effeckt-type; [""quarter-two-step";)0;@ ;00;ià;0;@ ;o;;{ ;ià;@ ;ià;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iâ;0;@;o;;{ ;iâ;@;iâ;T;	[
+o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iäo;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;ião;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6[ ;@;7["%;8"
+-100%; ió;iå;iå;	[ ;iåo;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iço;;i ;@;["z-index;;; o;!;@; "2;";#;	[ ;ié;iâo;;i ;@;[".effeckt-figcaption-wrap;o;;[o;;[o;
+;[o;;["effeckt-figcaption-wrap;" ;iê;0;@K;o;;{ ;iê;@K;iê;T;	[o;;i ;@;["transition;;; o;9	;@; [o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;iëo:Sass::Script::Operation
+;/:div;@:@operand2o;5;6@g;@;7[ ;8"2; i;ië:@operand1o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;ië;ië;:;;;ië;	[ ;iëo;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6[ ;@;7["%;8"	200%; i»;ií;ií;	[ ;ií;iêo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iîo;%
+;["
+hover;@v;";&;iî;'0;0;@v;o;;{ ;iîo;;[o;
+;[o;$;@v;iîo;%
+;["active;@v;";&;iî;'0;0;@v;o;;{ ;iî;@v;iî;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iï;0;@ì;o;;{ ;iï;@ì;iï;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6@g;@;7[ ;8"0; i ;iñ;iñ;	[ ;iño;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;ió;iïo;;i ;@;[".effeckt-figcaption-wrap;o;;[o;;[o;
+;[o;;["effeckt-figcaption-wrap;" ;iô;0;@¥;o;;{ ;iô;@¥;iô;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6@g;@;7[ ;8"0; i ;iö;iö;	[ ;iö;iô;iî;iào;,
+;@; ["&/* Effect 8 - Cover Push Right */;";-;	[ ;i†o;;i ;@;[",&[data-effeckt-type="cover-push-right"];o;;[o;;[o;
+;[o;$;" ;i°o;.;/"=;["data-effeckt-type; [""cover-push-right";)0;@—;00;i°;0;@—;o;;{ ;i°;@—;i°;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i¢;0;@Á;o;;{ ;i¢;@Á;i¢;T;	[
+o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;i£o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;i§o;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;i•o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6[ ;@;7["%;8"
+-100%; ió;i¶;i¶;	[ ;i¶o;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iß;i¢o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i©;0;@;o;;{ ;i©;@;i©;T;	[o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i™;	[ ;i™o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6@g;@;7[ ;8"0; i ;i´;i´;	[ ;i´;i©o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;i≠o;%
+;["
+hover;@<;";&;i≠;'0;0;@<;o;;{ ;i≠o;;[o;
+;[o;$;@<;i≠o;%
+;["active;@<;";&;i≠;'0;0;@<;o;;{ ;i≠;@<;i≠;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iÆ;0;@Y;o;;{ ;iÆ;@Y;iÆ;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6@g;@;7[ ;8"0; i ;iØ;iØ;	[ ;iØo;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;i∞;iÆo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i≤;0;@z;o;;{ ;i≤;@z;i≤;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateX;30;4[o;5;6[ ;@;7["%;8"	100%; ii;i≥;i≥;	[ ;i≥;i≤;i≠;i°o;,
+;@; ["&/* Effect 15 - Cover Slide Top */;";-;	[ ;i∏o;;i ;@;["+&[data-effeckt-type="cover-slide-top"];o;;[o;;[o;
+;[o;$;" ;iπo;.;/"=;["data-effeckt-type; [""cover-slide-top";)0;@ô;00;iπ;0;@ô;o;;{ ;iπ;@ô;iπ;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i∫;0;@Ø;o;;{ ;i∫;@Ø;i∫;T;	[
+o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iªo;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;iºo;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;iΩo;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7["%;8"
+-100%; ió;iæ;iæ;	[ ;iæo;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iø;i∫o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i¡;0;@‰;o;;{ ;i¡;@‰;i¡;T;	[o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i¬;	[ ;i¬;i¡o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iƒo;%
+;["
+hover;@˘;";&;iƒ;'0;0;@˘;o;;{ ;iƒo;;[o;
+;[o;$;@˘;iƒo;%
+;["active;@˘;";&;iƒ;'0;0;@˘;o;;{ ;iƒ;@˘;iƒ;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i≈;0;@;o;;{ ;i≈;@;i≈;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6@g;@;7[ ;8"0; i ;i∆;i∆;	[ ;i∆o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;i«;i≈;iƒ;iπo;,
+;@; ["*/* Effect 9 - Quarter Caption Zoom */;";-;	[ ;iÕo;;i ;@;["(&[data-effeckt-type="quarter-zoom"];o;;[o;;[o;
+;[o;$;" ;iŒo;.;/"=;["data-effeckt-type; [""quarter-zoom";)0;@9;00;iŒ;0;@9;o;;{ ;iŒ;@9;iŒ;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iœ;0;@O;o;;{ ;iœ;@O;iœ;T;	[
+o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;i–o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;i—o;;i ;@;["transform;;; o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"2; i;i“;i“;	[ ;i“o;;i ;@;["text-align;;; o;!;@; "center;";#;	[ ;i”o;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;i‘;iœo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i÷;0;@Ç;o;;{ ;i÷;@Ç;i÷;T;	[o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i◊;	[ ;i◊;i÷o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iŸo;%
+;["
+hover;@ó;";&;iŸ;'0;0;@ó;o;;{ ;iŸo;;[o;
+;[o;$;@ó;iŸo;%
+;["active;@ó;";&;iŸ;'0;0;@ó;o;;{ ;iŸ;@ó;iŸ;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i⁄;0;@¥;o;;{ ;i⁄;@¥;i⁄;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"1; i;i€;i€;	[ ;i€o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;i‹;i⁄o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iﬁ;0;@’;o;;{ ;iﬁ;@’;iﬁ;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"1.1; f1.1000000000000001 ôö;iﬂ;iﬂ;	[ ;iﬂ;iﬁ;iŸ;iŒo;,
+;@; ["Y/* Effect 10 - Revolving Door
+ * BUG: Super flickery in Safari 5.1.7 on Windows 7 */;";-;	[ ;iÂo;;i ;@;["/&[data-effeckt-type="revolving-door-left"];o;;[o;;[o;
+;[o;$;" ;iÁo;.;/"=;["data-effeckt-type; [""revolving-door-left";)0;@Û;00;iÁ;0;@Û;o;;{ ;iÁ;@Û;iÁ;T;	[	o;;i ;@;["overflow;;; o;!;@; "visible;";#;	[ ;iËo;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iÈ;0;@;o;;{ ;iÈ;@;iÈ;T;	[o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iÍo;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;iÎo;;i ;@;["
+width;;; o;!;@; "	100%;";#;	[ ;iÏo;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;iÌo;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;iÓ;iÓo;1;2{ ;@;"rotateY;30;4[o;5;6[ ;@;7["deg;8"180deg; i¥;iÓ;iÓ;:;;;iÓ;	[ ;iÓo;;i ;@;["backface-visibility;;; o;!;@; "hidden;";#;	[ ;iÔ;iÈo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iÒ;0;@U;o;;{ ;iÒ;@U;iÒ;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;iÚ;iÚ;	[ ;iÚo;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;iÛ;	[ ;iÛ;iÒo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iıo;%
+;["
+hover;@w;";&;iı;'0;0;@w;o;;{ ;iıo;;[o;
+;[o;$;@w;iıo;%
+;["active;@w;";&;iı;'0;0;@w;o;;{ ;iı;@w;iı;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iˆ;0;@î;o;;{ ;iˆ;@î;iˆ;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i˜;i˜o;1;2{ ;@;"rotateY;30;4[o;5;6[ ;@;7["deg;8"	0deg; i ;i˜;i˜;:;;;i˜;	[ ;i˜;iˆo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i˘;0;@º;o;;{ ;i˘;@º;i˘;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i˙;i˙o;1;2{ ;@;"rotateY;30;4[o;5;6[ ;@;7["deg;8"-180deg; iˇL;i˙;i˙;:;;;i˙;	[ ;i˙;i˘;iı;iÁo;;i ;@;["0&[data-effeckt-type="revolving-door-right"];o;;[o;;[o;
+;[o;$;" ;iˇo;.;/"=;["data-effeckt-type; [""revolving-door-right";)0;@‚;00;iˇ;0;@‚;o;;{ ;iˇ;@‚;iˇ;T;	[	o;;i ;@;["overflow;;; o;!;@; "visible;";#;	[ ;i o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i;0;@˛;o;;{ ;i;@˛;i;T;	[o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;io;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;io;;i ;@;["
+width;;; o;!;@; "	100%;";#;	[ ;io;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;io;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i;io;1;2{ ;@;"rotateY;30;4[o;5;6[ ;@;7["deg;8"180deg; i¥;i;i;:;;;i;	[ ;io;;i ;@;["backface-visibility;;; o;!;@; "hidden;";#;	[ ;i;io;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i	;0;@D;o;;{ ;i	;@D;i	;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i
+;i
+;	[ ;i
+o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i;	[ ;i;i	o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;io;%
+;["
+hover;@f;";&;i;'0;0;@f;o;;{ ;io;;[o;
+;[o;$;@f;io;%
+;["active;@f;";&;i;'0;0;@f;o;;{ ;i;@f;i;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i;0;@É;o;;{ ;i;@É;i;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i;io;1;2{ ;@;"rotateY;30;4[o;5;6[ ;@;7["deg;8"360deg; ih;i;i;:;;;i;	[ ;i;io;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i;0;@´;o;;{ ;i;@´;i;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i;io;1;2{ ;@;"rotateY;30;4[o;5;6[ ;@;7["deg;8"180deg; i¥;i;i;:;;;i;	[ ;i;i;i;iˇo;;i ;@;[".&[data-effeckt-type="revolving-door-top"];o;;[o;;[o;
+;[o;$;" ;io;.;/"=;["data-effeckt-type; [""revolving-door-top";)0;@—;00;i;0;@—;o;;{ ;i;@—;i;T;	[	o;;i ;@;["overflow;;; o;!;@; "visible;";#;	[ ;io;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i;0;@Ì;o;;{ ;i;@Ì;i;T;	[o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;io;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;io;;i ;@;["
+width;;; o;!;@; "	100%;";#;	[ ;io;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;io;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i;io;1;2{ ;@;"rotateX;30;4[o;5;6[ ;@;7["deg;8"180deg; i¥;i;i;:;;;i;	[ ;io;;i ;@;["backface-visibility;;; o;!;@; "hidden;";#;	[ ;i;io;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i!;0;@3	;o;;{ ;i!;@3	;i!;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i";i";	[ ;i"o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i#;	[ ;i#;i!o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;i%o;%
+;["
+hover;@U	;";&;i%;'0;0;@U	;o;;{ ;i%o;;[o;
+;[o;$;@U	;i%o;%
+;["active;@U	;";&;i%;'0;0;@U	;o;;{ ;i%;@U	;i%;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i&;0;@r	;o;;{ ;i&;@r	;i&;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i';i'o;1;2{ ;@;"rotateX;30;4[o;5;6[ ;@;7["deg;8"360deg; ih;i';i';:;;;i';	[ ;i';i&o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i);0;@ö	;o;;{ ;i);@ö	;i);T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i*;i*o;1;2{ ;@;"rotateX;30;4[o;5;6[ ;@;7["deg;8"180deg; i¥;i*;i*;:;;;i*;	[ ;i*;i);i%;io;;i ;@;["1&[data-effeckt-type="revolving-door-bottom"];o;;[o;;[o;
+;[o;$;" ;i/o;.;/"=;["data-effeckt-type; [""revolving-door-bottom";)0;@¿	;00;i/;0;@¿	;o;;{ ;i/;@¿	;i/;T;	[	o;;i ;@;["overflow;;; o;!;@; "visible;";#;	[ ;i0o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i1;0;@‹	;o;;{ ;i1;@‹	;i1;T;	[o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;i2o;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;i3o;;i ;@;["
+width;;; o;!;@; "	100%;";#;	[ ;i4o;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;i5o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i6;i6o;1;2{ ;@;"rotateX;30;4[o;5;6[ ;@;7["deg;8"180deg; i¥;i6;i6;:;;;i6;	[ ;i6o;;i ;@;["backface-visibility;;; o;!;@; "hidden;";#;	[ ;i7;i1o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i9;0;@"
+;o;;{ ;i9;@"
+;i9;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i:;i:;	[ ;i:o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i;;	[ ;i;;i9o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;i=o;%
+;["
+hover;@D
+;";&;i=;'0;0;@D
+;o;;{ ;i=o;;[o;
+;[o;$;@D
+;i=o;%
+;["active;@D
+;";&;i=;'0;0;@D
+;o;;{ ;i=;@D
+;i=;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i>;0;@a
+;o;;{ ;i>;@a
+;i>;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;i?;i?o;1;2{ ;@;"rotateX;30;4[o;5;6[ ;@;7["deg;8"	0deg; i ;i?;i?;:;;;i?;	[ ;i?;i>o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iA;0;@â
+;o;;{ ;iA;@â
+;iA;T;	[o;;i ;@;["transform;;; o;9	;@; [o;1;2{ ;@;"perspective;30;4[o;5;6[ ;@;7["px;8"1300px; i;iB;iBo;1;2{ ;@;"rotateX;30;4[o;5;6[ ;@;7["deg;8"-180deg; iˇL;iB;iB;:;;;iB;	[ ;iB;iA;i=;i/o;,
+;@; ["%/* Effect 11 - Caption Offset */;";-;	[ ;iGo;;i ;@;[""&[data-effeckt-type="offset"];o;;[o;;[o;
+;[o;$;" ;iHo;.;/"=;["data-effeckt-type; [""offset";)0;@≥
+;00;iH;0;@≥
+;o;;{ ;iH;@≥
+;iH;T;	[	o;;i ;@;["overflow;;; o;!;@; "visible;";#;	[ ;iIo;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iJ;0;@œ
+;o;;{ ;iJ;@œ
+;iJ;T;	[
+o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iKo;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;iLo;;i ;@;["text-align;;; o;!;@; "center;";#;	[ ;iMo;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iNo;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;iO;iJo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iQ;0;@˝
+;o;;{ ;iQ;@˝
+;iQ;T;	[o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;iR;	[ ;iR;iQo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iTo;%
+;["
+hover;@;";&;iT;'0;0;@;o;;{ ;iTo;;[o;
+;[o;$;@;iTo;%
+;["active;@;";&;iT;'0;0;@;o;;{ ;iT;@;iT;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iU;0;@/;o;;{ ;iU;@/;iU;T;	[
+o;;i ;@;["transform;;; o;1;2{ ;@;"translate;30;4[o;5;6[ ;@;7["px;8"	15px; i;iVo;5;6[ ;@;7["px;8"	15px; i;iV;iV;	[ ;iVo;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;iWo;;i ;@;["z-index;;; o;!;@; "100;";#;	[ ;iXo;,
+;@; ["/*prevent ovarslap */;";-;	[ ;iXo;;i ;@;["overflow;;; o;!;@; "hidden;";#;	[ ;iY;iU;iT;iHo;,
+;@; ["5/* Effect 12 - Guillotine Reverse / Reveal Up */;";-;	[ ;i]o;;i ;@;[".&[data-effeckt-type="guillotine-reverse"];o;;[o;;[o;
+;[o;$;" ;i^o;.;/"=;["data-effeckt-type; [""guillotine-reverse";)0;@i;00;i^;0;@i;o;;{ ;i^;@i;i^;T;	[	o;;i ;@;["overflow;;; o;!;@; "visible;";#;	[ ;i_o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;i`;0;@Ö;o;;{ ;i`;@Ö;i`;T;	[	o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iao;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;ibo;;i ;@;["text-align;;; o;!;@; "center;";#;	[ ;ico;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;id;i`o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;if;0;@≠;o;;{ ;if;@≠;if;T;	[	o;;i ;@;["display;;; o;!;@; "
+block;";#;	[ ;igo;;i ;@;["position;;; o;!;@; "relative;";#;	[ ;iho;;i ;@;["z-index;;; o;!;@; "10;";#;	[ ;iio;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;ij;	[ ;ij;ifo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;ilo;%
+;["
+hover;@‘;";&;il;'0;0;@‘;o;;{ ;ilo;;[o;
+;[o;$;@‘;ilo;%
+;["active;@‘;";&;il;'0;0;@‘;o;;{ ;il;@‘;il;T;	[o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;im;0;@Ò;o;;{ ;im;@Ò;im;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7["%;8"
+-100%; ió;in;in;	[ ;in;im;il;i^o;,
+;@; ["!/* Effect 13 - Half Slide */;";-;	[ ;iro;;i ;@;["&&[data-effeckt-type="half-slide"];o;;[o;;[o;
+;[o;$;" ;iso;.;/"=;["data-effeckt-type; [""half-slide";)0;@;00;is;0;@;o;;{ ;is;@;is;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;it;0;@&;o;;{ ;it;@&;it;T;	[
+o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iuo;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;ivo;;i ;@;["text-align;;; o;!;@; "center;";#;	[ ;iwo;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;ixo;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7["%;8"	100%; ii;iy;iy;	[ ;iy;ito;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;i{;0;@[;o;;{ ;i{;@[;i{;T;	[o;;i ;@;["display;;; o;!;@; "
+block;";#;	[ ;i|o;;i ;@;["position;;; o;!;@; "relative;";#;	[ ;i}o;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;i~;	[ ;i~;i{o;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iÄo;%
+;["
+hover;@|;";&;iÄ;'0;0;@|;o;;{ ;iÄo;;[o;
+;[o;$;@|;iÄo;%
+;["active;@|;";&;iÄ;'0;0;@|;o;;{ ;iÄ;@|;iÄ;T;	[o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iÅ;0;@ô;o;;{ ;iÅ;@ô;iÅ;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7["%;8"	-50%; i…;iÇ;iÇ;	[ ;iÇ;iÅo;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iÑ;0;@∂;o;;{ ;iÑ;@∂;iÑ;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"translateY;30;4[o;5;6[ ;@;7["%;8"50%; i7;iÖ;iÖ;	[ ;iÖ;iÑ;iÄ;iso;,
+;@; ["/* Effect 14 - Tunnel */;";-;	[ ;iäo;;i ;@;[""&[data-effeckt-type="tunnel"];o;;[o;;[o;
+;[o;$;" ;ião;.;/"=;["data-effeckt-type; [""tunnel";)0;@’;00;iã;0;@’;o;;{ ;iã;@’;iã;T;	[o;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iå;0;@Î;o;;{ ;iå;@Î;iå;T;	[o;;i ;@;["top;;; o;!;@; "0;";#;	[ ;iço;;i ;@;["	left;;; o;!;@; "0;";#;	[ ;iéo;;i ;@;["text-align;;; o;!;@; "center;";#;	[ ;ièo;;i ;@;["height;;; o;!;@; "	100%;";#;	[ ;iêo;;i ;@;["opacity;;; o;!;@; "0;";#;	[ ;iëo;;i ;@;["transform;;; o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"0.7; f0.69999999999999996 ff;ií;ií;	[ ;ií;iåo;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iî;0;@%;o;;{ ;iî;@%;iî;T;	[	o;;i ;@;["display;;; o;!;@; "
+block;";#;	[ ;iïo;;i ;@;["position;;; o;!;@; "relative;";#;	[ ;iño;;i ;@;["z-index;;; o;!;@; "10;";#;	[ ;ióo;;i ;@;["transition;;; o;*	;@;"(effeckt-caption-transition-duration;+"(effeckt_caption_transition_duration;iò;	[ ;iò;iîo;;i ;@;["&:hover, &:active;o;;[o;;[o;
+;[o;$;" ;iöo;%
+;["
+hover;@L;";&;iö;'0;0;@L;o;;{ ;iöo;;[o;
+;[o;$;@L;iöo;%
+;["active;@L;";&;iö;'0;0;@L;o;;{ ;iö;@L;iö;T;	[o;;i ;@;["img;o;;[o;;[o;
+;[o;(	;["img;)0;" ;iõ;0;@i;o;;{ ;iõ;@i;iõ;T;	[o;;i ;@;["transform;;; o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"0.4; f0.40000000000000002 ôö;iú;iú;	[ ;iú;iõo;;i ;@;["figcaption;o;;[o;;[o;
+;[o;(	;["figcaption;)0;" ;iû;0;@Ö;o;;{ ;iû;@Ö;iû;T;	[o;;i ;@;["opacity;;; o;!;@; "1;";#;	[ ;iüo;;i ;@;["transform;;; o;1;2{ ;@;"
+scale;30;4[o;5;6@g;@;7[ ;8"1; i;i†;i†;	[ ;i†;iû;iö;iã;i;i

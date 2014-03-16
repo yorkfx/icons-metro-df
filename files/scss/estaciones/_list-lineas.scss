@@ -1,0 +1,48 @@
+ul.list-lineas{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	li{
+		font-size: 22px;
+		color: #444;
+		text-align: center;
+		line-height: 40px;
+		color: white;
+		margin: 0;
+		a{
+			text-decoration: none;
+			&:active,&:link, &:visited{ color:#444}
+		}
+		ul{
+			border-top: 1px solid #eee;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			background-color: #FFF;
+			li{
+				display: inline-block;
+				width: 49%;
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+				color:#444;
+				background-color: #FFF;
+				border:1px solid white;
+				background-image: none;
+				span.circle{
+					border:1px solid red;
+					display: block;
+					margin: 0 auto;
+					left: 0;
+					top: 0;
+				}
+				em{
+					color:#444;
+					display: block;
+					margin: 0 auto;
+
+				}
+			}
+		}
+	}
+}

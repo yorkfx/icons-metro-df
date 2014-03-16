@@ -1,0 +1,262 @@
+3.2.10 (Media Mark)
+b95838b1f1c567b5668180ec2e7df7bbaabf437c
+o:Sass::Tree::RootNode
+:@template"´2@font-face {
+	font-family: 'estaciones';
+	src:url('../fonts/estaciones.eot');
+	src:url('../fonts/estaciones.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/estaciones.woff') format('woff'),
+		url('../fonts/estaciones.ttf') format('truetype'),
+		url('../fonts/estaciones.svg#estaciones') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Chrome Perfect Render */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'estaciones';
+    src: url('../fonts/estaciones.svg#estaciones') format('svg');
+  }
+}
+
+
+em[class^="estacion-"], em[class*=" estacion-"] {
+	color: black;
+	font-size: 2.5em;
+	font-family: 'estaciones';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+$estacion-css-prefix:   estacion !default;
+
+// Estaciones Suburbano
+.#{$estacion-css-prefix}-suburbano-tultilan:before {		content: "\e600";}
+.#{$estacion-css-prefix}-suburbano-tlalnepantla:before {	content: "\e601";}
+.#{$estacion-css-prefix}-suburbano-lecheria:before {		content: "\e602";}
+.#{$estacion-css-prefix}-suburbano-san-rafael:before {		content: "\e603";}
+.#{$estacion-css-prefix}-suburbano-fortuna:before {		content: "\e604";}
+.#{$estacion-css-prefix}-suburbano-cuautitlan:before {		content: "\e605";}
+.#{$estacion-css-prefix}-suburbano-buenavista:before {		content: "\e606";}
+
+// Estaciones Metro
+.#{$estacion-css-prefix}-universidad:before {			content: "\e607";}
+.#{$estacion-css-prefix}-tlatelolco:before {				content: "\e608";}
+.#{$estacion-css-prefix}-tezozomoc:before {				content: "\e609";}
+.#{$estacion-css-prefix}-terminal-aerea:before {			content: "\e60a";}
+.#{$estacion-css-prefix}-talisman:before {				content: "\e60b";}
+.#{$estacion-css-prefix}-tacubaya:before {				content: "\e60c";}
+.#{$estacion-css-prefix}-tacuba:before {				content: "\e60d";}
+.#{$estacion-css-prefix}-sevilla:before {				content: "\e60e";}
+.#{$estacion-css-prefix}-santa-marta:before {			content: "\e60f";}
+.#{$estacion-css-prefix}-santa-anita:before {			content: "\e610";}
+.#{$estacion-css-prefix}-san-pedro-de-los-pinos:before {	content: "\e611";}
+.#{$estacion-css-prefix}-san-lazaro:before {				content: "\e612";}
+.#{$estacion-css-prefix}-san-juan-de-letran:before {		content: "\e613";}
+.#{$estacion-css-prefix}-san-antonio-abad:before {		content: "\e614";}
+.#{$estacion-css-prefix}-salto-del-agua:before {			content: "\e615";}
+.#{$estacion-css-prefix}-romero-rubio:before {			content: "\e616";}
+.#{$estacion-css-prefix}-rio-de-los-remedios:before {		content: "\e617";}
+.#{$estacion-css-prefix}-ricardo-flores-magon:before {		content: "\e618";}
+.#{$estacion-css-prefix}-revolucion:before {				content: "\e619";}
+.#{$estacion-css-prefix}-refineria:before {				content: "\e61a";}
+.#{$estacion-css-prefix}-puebla:before {				content: "\e61b";}
+.#{$estacion-css-prefix}-potrero:before {				content: "\e61c";}
+.#{$estacion-css-prefix}-polanco:before {				content: "\e61d";}
+.#{$estacion-css-prefix}-plaza-de-la-transparencia:before {	content: "\e61e";}
+// Estacion Etiopia -> Plaza de la Transparencia
+.#{$estacion-css-prefix}-etiopia:before {				content: "\e61e";}
+.#{$estacion-css-prefix}-plaza-aragon:before {			content: "\e61f";}
+.#{$estacion-css-prefix}-pino-suarez:before {			content: "\e620";}
+.#{$estacion-css-prefix}-penon-viejo:before {			content: "\e621";}
+.#{$estacion-css-prefix}-patriotismo:before {			content: "\e622";}
+.#{$estacion-css-prefix}-oceania:before {				content: "\e623";}
+.#{$estacion-css-prefix}-observatorio:before {			content: "\e624";}
+.#{$estacion-css-prefix}-obrera:before {				content: "\e625";}
+.#{$estacion-css-prefix}-norte-45:before {				content: "\e626";}
+.#{$estacion-css-prefix}-normal:before {				content: "\e627";}
+.#{$estacion-css-prefix}-ninos-heroes:before {			content: "\e628";}
+.#{$estacion-css-prefix}-nezahualcoyotl:before {			content: "\e629";}
+.#{$estacion-css-prefix}-nativitas:before {				content: "\e62a";}
+.#{$estacion-css-prefix}-muzquiz:before {				content: "\e62b";}
+.#{$estacion-css-prefix}-morelos:before {				content: "\e62c";}
+.#{$estacion-css-prefix}-moctezuma:before {				content: "\e62d";}
+.#{$estacion-css-prefix}-mixiuhca:before {				content: "\e62e";}
+.#{$estacion-css-prefix}-mixcoac:before {				content: "\e62f";}
+.#{$estacion-css-prefix}-misterios:before {				content: "\e630";}
+.#{$estacion-css-prefix}-miguel-angel-de-quevedo:before {	content: "\e631";}
+.#{$estacion-css-prefix}-merced:before {				content: "\e632";}
+.#{$estacion-css-prefix}-martin-carrera:before {			content: "\e633";}
+.#{$estacion-css-prefix}-los-reyes:before {				content: "\e634";}
+.#{$estacion-css-prefix}-lindavista:before {				content: "\e635";}
+.#{$estacion-css-prefix}-lazaro-cardenas:before {			content: "\e636";}
+.#{$estacion-css-prefix}-lagunilla:before {				content: "\e637";}
+.#{$estacion-css-prefix}-la-villa:before {				content: "\e638";}
+.#{$estacion-css-prefix}-la-viga:before {				content: "\e639";}
+.#{$estacion-css-prefix}-la-raza:before {				content: "\e63a";}
+.#{$estacion-css-prefix}-la-paz:before {				content: "\e63b";}
+.#{$estacion-css-prefix}-juarez:before {				content: "\e63c";}
+.#{$estacion-css-prefix}-juanacatlan:before {			content: "\e63d";}
+.#{$estacion-css-prefix}-jamaica:before {				content: "\e63e";}
+.#{$estacion-css-prefix}-iztapalapa:before {				content: "\e63f";}
+.#{$estacion-css-prefix}-iztacalco:before {				content: "\e640";}
+.#{$estacion-css-prefix}-isabel-la-catolica:before {		content: "\e641";}
+.#{$estacion-css-prefix}-insurgentes:before {			content: "\e642";}
+.#{$estacion-css-prefix}-villa-de-aragon:before {			content: "\e643";}
+.#{$estacion-css-prefix}-valle-gomez:before {			content: "\e644";}
+.#{$estacion-css-prefix}-vallejo:before {				content: "\e645";}
+.#{$estacion-css-prefix}-velodromo:before {				content: "\e646";}
+.#{$estacion-css-prefix}-xola:before {					content: "\e647";}
+.#{$estacion-css-prefix}-zapata:before {				content: "\e648";}
+.#{$estacion-css-prefix}-zaragoza:before {				content: "\e649";}
+.#{$estacion-css-prefix}-fray-servando:before {			content: "\e64a";}
+.#{$estacion-css-prefix}-ferreria:before {				content: "\e64b";}
+.#{$estacion-css-prefix}-eugenia:before {				content: "\e64c";}
+.#{$estacion-css-prefix}-escuadron-201:before {			content: "\e64d";}
+.#{$estacion-css-prefix}-ermita:before {				content: "\e64e";}
+.#{$estacion-css-prefix}-el-rosario:before {				content: "\e64f";}
+.#{$estacion-css-prefix}-eduardo-molina:before {			content: "\e650";}
+.#{$estacion-css-prefix}-ecatepec:before {				content: "\e651";}
+.#{$estacion-css-prefix}-doctores:before {				content: "\e652";}
+.#{$estacion-css-prefix}-division-del-norte:before {		content: "\e653";}
+.#{$estacion-css-prefix}-deportivo-oceania:before {		content: "\e654";}
+.#{$estacion-css-prefix}-deportivo-18-de-marzo:before {	content: "\e655";}
+// Estacion Deportivo 18 de Marzo -> Basilica
+.#{$estacion-css-prefix}-basilica:before {				content: "\e655";}
+.#{$estacion-css-prefix}-cuitlahuac:before {				content: "\e656";}
+.#{$estacion-css-prefix}-cuauhtemoc:before {				content: "\e657";}
+.#{$estacion-css-prefix}-cuatro-caminos:before {			content: "\e658";}
+.#{$estacion-css-prefix}-coyuya:before {				content: "\e659";}
+.#{$estacion-css-prefix}-coyoacan:before {				content: "\e65a";}
+.#{$estacion-css-prefix}-coplico:before {				content: "\e65b";}
+.#{$estacion-css-prefix}-consulado:before {				content: "\e65c";}
+.#{$estacion-css-prefix}-constituyentes:before {			content: "\e65d";}
+.#{$estacion-css-prefix}-constitucion-de-1917:before {		content: "\e65e";}
+.#{$estacion-css-prefix}-colegio-militar:before {			content: "\e65f";}
+.#{$estacion-css-prefix}-ciudad-deportiva:before{ 		content: "\e660";}
+.#{$estacion-css-prefix}-ciudad-azteca:before {			content: "\e661";}
+.#{$estacion-css-prefix}-chilpancingo:before {			content: "\e662";}
+.#{$estacion-css-prefix}-chapultepec:before {			content: "\e663";}
+.#{$estacion-css-prefix}-chabacano:before {				content: "\e664";}
+.#{$estacion-css-prefix}-cerro-de-la-estrella:before {		content: "\e665";}
+.#{$estacion-css-prefix}-centro-medico:before {			content: "\e666";}
+.#{$estacion-css-prefix}-candelaria:before {				content: "\e667";}
+.#{$estacion-css-prefix}-canal-del-norte:before {			content: "\e668";}
+.#{$estacion-css-prefix}-canal-de-san-juan:before {		content: "\e669";}
+.#{$estacion-css-prefix}-camarones:before {				content: "\e66a";}
+.#{$estacion-css-prefix}-buenavista:before {				content: "\e66b";}
+.#{$estacion-css-prefix}-buenavista-2:before {			content: "\e66b";} // Estacion Metrobus
+.#{$estacion-css-prefix}-boulevard-puerto-aereo:before {	content: "\e66c";}
+.#{$estacion-css-prefix}-bosque-de-aragon:before {		content: "\e66d";}
+.#{$estacion-css-prefix}-bondojito:before {				content: "\e66e";}
+.#{$estacion-css-prefix}-bellas-artes:before {			content: "\e66f";}
+.#{$estacion-css-prefix}-barranca-del-muerto:before {		content: "\e670";}
+.#{$estacion-css-prefix}-balderas:before {				content: "\e671";}
+.#{$estacion-css-prefix}-balbuena:before {				content: "\e672";}
+.#{$estacion-css-prefix}-atzcapotzalco:before {			content: "\e673";}
+.#{$estacion-css-prefix}-autobuses-del-norte:before {		content: "\e674";}
+.#{$estacion-css-prefix}-auditorio:before {				content: "\e675";}
+.#{$estacion-css-prefix}-atlalilco:before {				content: "\e676";}
+.#{$estacion-css-prefix}-aragon:before {				content: "\e677";}
+.#{$estacion-css-prefix}-aquiles-serdan:before {			content: "\e678";}
+.#{$estacion-css-prefix}-apatlaco:before {				content: "\e679";}
+.#{$estacion-css-prefix}-allende:before {				content: "\e67a";}
+.#{$estacion-css-prefix}-agricola-oriental:before {		content: "\e67b";}
+.#{$estacion-css-prefix}-aculco:before {				content: "\e67c";}
+.#{$estacion-css-prefix}-acatitla:before {				content: "\e67d";}
+.#{$estacion-css-prefix}-garibaldi:before {				content: "\e67e";}
+.#{$estacion-css-prefix}-general-anaya:before {			content: "\e67f";}
+.#{$estacion-css-prefix}-gomez-farias:before {			content: "\e680";}
+.#{$estacion-css-prefix}-guelatao:before {				content: "\e681";}
+.#{$estacion-css-prefix}-guerrero:before {				content: "\e682";}
+.#{$estacion-css-prefix}-hangares:before {				content: "\e683";}
+.#{$estacion-css-prefix}-hidalgo:before {				content: "\e684";}
+.#{$estacion-css-prefix}-hospital-general:before {		content: "\e685";}
+.#{$estacion-css-prefix}-impulsora:before {				content: "\e686";}
+.#{$estacion-css-prefix}-indios-verdes:before {			content: "\e687";}
+.#{$estacion-css-prefix}-instituto-del-petroleo:before {	content: "\e688";}
+.#{$estacion-css-prefix}-olimpica:before {				content: "\e689";}
+.#{$estacion-css-prefix}-panteones:before {				content: "\e68a";}
+.#{$estacion-css-prefix}-pantitlan:before {				content: "\e68b";}
+.#{$estacion-css-prefix}-portales:before {				content: "\e68c";}
+.#{$estacion-css-prefix}-popotla:before {				content: "\e68d";}
+.#{$estacion-css-prefix}-politecnico:before {			content: "\e68e";}
+.#{$estacion-css-prefix}-san-antonio:before {			content: "\e68f";}
+.#{$estacion-css-prefix}-san-cosme:before {				content: "\e690";}
+.#{$estacion-css-prefix}-san-joaquin:before {			content: "\e691";}
+.#{$estacion-css-prefix}-tepito:before {				content: "\e692";}
+.#{$estacion-css-prefix}-tasquena:before {				content: "\e693";}
+.#{$estacion-css-prefix}-tepalcates:before {				content: "\e694";}
+.#{$estacion-css-prefix}-uam:before {					content: "\e695";}
+.#{$estacion-css-prefix}-zocalo:before {				content: "\e696";}
+.#{$estacion-css-prefix}-viveros:before {				content: "\e697";}
+// Estacion Viveros -> Derechos Humanos
+.#{$estacion-css-prefix}-derechos-humanos:before {		content: "\e697";}
+.#{$estacion-css-prefix}-villa-de-cortes:before {			content: "\e698";}
+.#{$estacion-css-prefix}-viaducto:before {				content: "\e699";}
+// Estaciones Linea 12
+.#{$estacion-css-prefix}-hospital-20-de-noviembre:before {	content: "\e69b";}
+.#{$estacion-css-prefix}-insurgentes-sur:before {			content: "\e69c";}
+.#{$estacion-css-prefix}-lomas-estrella:before {			content: "\e69d";}
+.#{$estacion-css-prefix}-mexicaltzingo:before {			content: "\e69e";}
+.#{$estacion-css-prefix}-nopalera:before {				content: "\e69f";}
+.#{$estacion-css-prefix}-olivos:before {				content: "\e6a0";}
+.#{$estacion-css-prefix}-parque-de-los-venados:before {	content: "\e6a1";}
+.#{$estacion-css-prefix}-periferico-oriente:before {		content: "\e6a2";}
+.#{$estacion-css-prefix}-san-andres-tomatlan:before {		content: "\e6a3";}
+.#{$estacion-css-prefix}-tomatlan:before {				content: "\e6a3";}
+.#{$estacion-css-prefix}-tezonco:before {				content: "\e6a4";}
+.#{$estacion-css-prefix}-tlahuac:before {				content: "\e6a5";}
+.#{$estacion-css-prefix}-tlaltenco:before {				content: "\e6a6";}
+.#{$estacion-css-prefix}-culhuacan:before {				content: "\e6a7";}
+.#{$estacion-css-prefix}-calle-11:before {				content: "\e6a8";}
+.#{$estacion-css-prefix}-eje-central:before {			content: "\e6a9";}
+
+// Estaciones Metrobus
+:@options{ :@has_childrenT:@children[ªo:Sass::Tree::DirectiveNode
+;@:@value["@font-face;T;	[
+o:Sass::Tree::PropNode:
+@tabsi ;@:
+@name["font-family:@prop_syntax:new;o:Sass::Script::String;@;"'estaciones':
+@type:identifier;	[ :
+@lineio;;i ;@;["src;;;o:Sass::Script::Funcall:@keywords{ ;@;"url:@splat0:
+@args[o;	;@;"../fonts/estaciones.eot;:string;i;i;	[ ;io;;i ;@;["src;;;o:Sass::Script::List	;@;[	o;	;@;[o;;{ ;@;"url;0;[o;	;@;"#../fonts/estaciones.eot?#iefix;;;i	;i	o;;{ ;@;"format;0;[o;	;@;"embedded-opentype;;;i	;i	:@separator:
+space;i	o;	;@;[o;;{ ;@;"url;0;[o;	;@;"../fonts/estaciones.woff;;;i
+;i
+o;;{ ;@;"format;0;[o;	;@;"	woff;;;i
+;i
+;;;i
+o;	;@;[o;;{ ;@;"url;0;[o;	;@;"../fonts/estaciones.ttf;;;i;io;;{ ;@;"format;0;[o;	;@;"truetype;;;i;i;;;io;	;@;[o;;{ ;@;"url;0;[o;	;@;"'../fonts/estaciones.svg#estaciones;;;i;io;;{ ;@;"format;0;[o;	;@;"svg;;;i;i;;;i;:
+comma;i	;	[ ;io;;i ;@;["font-weight;;;o;;@;"normal;;;	[ ;io;;i ;@;["font-style;;;o;;@;"normal;;;	[ ;i;io:Sass::Tree::CommentNode
+;@;[" /* Chrome Perfect Render */;:normal;	[ ;io:Sass::Tree::MediaNode;i ;@;" ;T;	[o;
+
+;@;["@font-face;T;	[o;;i ;@;["font-family;;;o;;@;"'estaciones';;;	[ ;io;;i ;@;["src;;;o;	;@;[o;;{ ;@;"url;0;[o;	;@;"'../fonts/estaciones.svg#estaciones;;;i;io;;{ ;@;"format;0;[o;	;@;"svg;;;i;i;;;i;	[ ;i;i:@query["screen"
+ and "(o;	;@;"#-webkit-min-device-pixel-ratio;;;i": o:Sass::Script::Number:@denominator_units[ ;@:@numerator_units[ :@original"0;i ;i");io:Sass::Tree::RuleNode;i ;@:
+@rule["4em[class^="estacion-"], em[class*=" estacion-"]:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;*[o:#Sass::Selector::SimpleSequence
+;*[o:Sass::Selector::Element	;["em:@namespace0:@filename" ;io:Sass::Selector::Attribute:@operator"^=;["
+class;[""estacion-";.0;/@ù:@flags0;i:@subject0;/@ù:@sourceso:Set:
+@hash{ ;io;+;*[o;,
+;*[o;-	;["em;.0;/@ù;io;0;1"*=;["
+class;["" estacion-";.0;/@ù;20;i;30;/@ù;4o;5;6{ ;i;/@ù;i;T;	[o;;i ;@;["
+color;;;o;;@;"
+black;;;	[ ;io;;i ;@;["font-size;;;o;;@;"
+2.5em;;;	[ ;io;;i ;@;["font-family;;;o;;@;"'estaciones';;;	[ ;io;;i ;@;["
+speak;;;o;;@;"	none;;;	[ ;io;;i ;@;["font-style;;;o;;@;"normal;;;	[ ;io;;i ;@;["font-weight;;;o;;@;"normal;;;	[ ;i o;;i ;@;["font-variant;;;o;;@;"normal;;;	[ ;i!o;;i ;@;["text-transform;;;o;;@;"	none;;;	[ ;i"o;;i ;@;["line-height;;;o;;@;"1;;;	[ ;i#o;
+;@;[",/* Better Font Rendering =========== */;;;	[ ;i$o;;i ;@;["-webkit-font-smoothing;;;o;;@;"antialiased;;;	[ ;i%o;;i ;@;["-moz-osx-font-smoothing;;;o;;@;"grayscale;;;	[ ;i&;io:Sass::Tree::VariableNode:@guarded"!default;@;"estacion-css-prefix:
+@expro;	;@;"estacion;;;i);	[ ;i)o;
+;@;["/* Estaciones Suburbano */;:silent;	[ ;i+o;&;i ;@;'[".o:Sass::Script::Variable	;@;"estacion-css-prefix:@underscored_name"estacion_css_prefix;i,"-suburbano-tultilan:before;T;	[o;;i ;@;["content;;;o;;@;""\e600";;;	[ ;i,;i,o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i-"#-suburbano-tlalnepantla:before;T;	[o;;i ;@;["content;;;o;;@;""\e601";;;	[ ;i-;i-o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i."-suburbano-lecheria:before;T;	[o;;i ;@;["content;;;o;;@;""\e602";;;	[ ;i.;i.o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i/"!-suburbano-san-rafael:before;T;	[o;;i ;@;["content;;;o;;@;""\e603";;;	[ ;i/;i/o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i0"-suburbano-fortuna:before;T;	[o;;i ;@;["content;;;o;;@;""\e604";;;	[ ;i0;i0o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i1"!-suburbano-cuautitlan:before;T;	[o;;i ;@;["content;;;o;;@;""\e605";;;	[ ;i1;i1o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i2"!-suburbano-buenavista:before;T;	[o;;i ;@;["content;;;o;;@;""\e606";;;	[ ;i2;i2o;
+;@;["/* Estaciones Metro */;;:;	[ ;i4o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i5"-universidad:before;T;	[o;;i ;@;["content;;;o;;@;""\e607";;;	[ ;i5;i5o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i6"-tlatelolco:before;T;	[o;;i ;@;["content;;;o;;@;""\e608";;;	[ ;i6;i6o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i7"-tezozomoc:before;T;	[o;;i ;@;["content;;;o;;@;""\e609";;;	[ ;i7;i7o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i8"-terminal-aerea:before;T;	[o;;i ;@;["content;;;o;;@;""\e60a";;;	[ ;i8;i8o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i9"-talisman:before;T;	[o;;i ;@;["content;;;o;;@;""\e60b";;;	[ ;i9;i9o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i:"-tacubaya:before;T;	[o;;i ;@;["content;;;o;;@;""\e60c";;;	[ ;i:;i:o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i;"-tacuba:before;T;	[o;;i ;@;["content;;;o;;@;""\e60d";;;	[ ;i;;i;o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i<"-sevilla:before;T;	[o;;i ;@;["content;;;o;;@;""\e60e";;;	[ ;i<;i<o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i="-santa-marta:before;T;	[o;;i ;@;["content;;;o;;@;""\e60f";;;	[ ;i=;i=o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i>"-santa-anita:before;T;	[o;;i ;@;["content;;;o;;@;""\e610";;;	[ ;i>;i>o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i?"#-san-pedro-de-los-pinos:before;T;	[o;;i ;@;["content;;;o;;@;""\e611";;;	[ ;i?;i?o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i@"-san-lazaro:before;T;	[o;;i ;@;["content;;;o;;@;""\e612";;;	[ ;i@;i@o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iA"-san-juan-de-letran:before;T;	[o;;i ;@;["content;;;o;;@;""\e613";;;	[ ;iA;iAo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iB"-san-antonio-abad:before;T;	[o;;i ;@;["content;;;o;;@;""\e614";;;	[ ;iB;iBo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iC"-salto-del-agua:before;T;	[o;;i ;@;["content;;;o;;@;""\e615";;;	[ ;iC;iCo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iD"-romero-rubio:before;T;	[o;;i ;@;["content;;;o;;@;""\e616";;;	[ ;iD;iDo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iE" -rio-de-los-remedios:before;T;	[o;;i ;@;["content;;;o;;@;""\e617";;;	[ ;iE;iEo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iF"!-ricardo-flores-magon:before;T;	[o;;i ;@;["content;;;o;;@;""\e618";;;	[ ;iF;iFo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iG"-revolucion:before;T;	[o;;i ;@;["content;;;o;;@;""\e619";;;	[ ;iG;iGo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iH"-refineria:before;T;	[o;;i ;@;["content;;;o;;@;""\e61a";;;	[ ;iH;iHo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iI"-puebla:before;T;	[o;;i ;@;["content;;;o;;@;""\e61b";;;	[ ;iI;iIo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iJ"-potrero:before;T;	[o;;i ;@;["content;;;o;;@;""\e61c";;;	[ ;iJ;iJo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iK"-polanco:before;T;	[o;;i ;@;["content;;;o;;@;""\e61d";;;	[ ;iK;iKo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iL"&-plaza-de-la-transparencia:before;T;	[o;;i ;@;["content;;;o;;@;""\e61e";;;	[ ;iL;iLo;
+;@;["8/* Estacion Etiopia -> Plaza de la Transparencia */;;:;	[ ;iMo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iN"-etiopia:before;T;	[o;;i ;@;["content;;;o;;@;""\e61e";;;	[ ;iN;iNo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iO"-plaza-aragon:before;T;	[o;;i ;@;["content;;;o;;@;""\e61f";;;	[ ;iO;iOo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iP"-pino-suarez:before;T;	[o;;i ;@;["content;;;o;;@;""\e620";;;	[ ;iP;iPo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iQ"-penon-viejo:before;T;	[o;;i ;@;["content;;;o;;@;""\e621";;;	[ ;iQ;iQo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iR"-patriotismo:before;T;	[o;;i ;@;["content;;;o;;@;""\e622";;;	[ ;iR;iRo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iS"-oceania:before;T;	[o;;i ;@;["content;;;o;;@;""\e623";;;	[ ;iS;iSo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iT"-observatorio:before;T;	[o;;i ;@;["content;;;o;;@;""\e624";;;	[ ;iT;iTo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iU"-obrera:before;T;	[o;;i ;@;["content;;;o;;@;""\e625";;;	[ ;iU;iUo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iV"-norte-45:before;T;	[o;;i ;@;["content;;;o;;@;""\e626";;;	[ ;iV;iVo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iW"-normal:before;T;	[o;;i ;@;["content;;;o;;@;""\e627";;;	[ ;iW;iWo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iX"-ninos-heroes:before;T;	[o;;i ;@;["content;;;o;;@;""\e628";;;	[ ;iX;iXo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iY"-nezahualcoyotl:before;T;	[o;;i ;@;["content;;;o;;@;""\e629";;;	[ ;iY;iYo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iZ"-nativitas:before;T;	[o;;i ;@;["content;;;o;;@;""\e62a";;;	[ ;iZ;iZo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i["-muzquiz:before;T;	[o;;i ;@;["content;;;o;;@;""\e62b";;;	[ ;i[;i[o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i\"-morelos:before;T;	[o;;i ;@;["content;;;o;;@;""\e62c";;;	[ ;i\;i\o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i]"-moctezuma:before;T;	[o;;i ;@;["content;;;o;;@;""\e62d";;;	[ ;i];i]o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i^"-mixiuhca:before;T;	[o;;i ;@;["content;;;o;;@;""\e62e";;;	[ ;i^;i^o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i_"-mixcoac:before;T;	[o;;i ;@;["content;;;o;;@;""\e62f";;;	[ ;i_;i_o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i`"-misterios:before;T;	[o;;i ;@;["content;;;o;;@;""\e630";;;	[ ;i`;i`o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ia"$-miguel-angel-de-quevedo:before;T;	[o;;i ;@;["content;;;o;;@;""\e631";;;	[ ;ia;iao;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ib"-merced:before;T;	[o;;i ;@;["content;;;o;;@;""\e632";;;	[ ;ib;ibo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ic"-martin-carrera:before;T;	[o;;i ;@;["content;;;o;;@;""\e633";;;	[ ;ic;ico;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;id"-los-reyes:before;T;	[o;;i ;@;["content;;;o;;@;""\e634";;;	[ ;id;ido;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ie"-lindavista:before;T;	[o;;i ;@;["content;;;o;;@;""\e635";;;	[ ;ie;ieo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;if"-lazaro-cardenas:before;T;	[o;;i ;@;["content;;;o;;@;""\e636";;;	[ ;if;ifo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ig"-lagunilla:before;T;	[o;;i ;@;["content;;;o;;@;""\e637";;;	[ ;ig;igo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ih"-la-villa:before;T;	[o;;i ;@;["content;;;o;;@;""\e638";;;	[ ;ih;iho;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ii"-la-viga:before;T;	[o;;i ;@;["content;;;o;;@;""\e639";;;	[ ;ii;iio;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ij"-la-raza:before;T;	[o;;i ;@;["content;;;o;;@;""\e63a";;;	[ ;ij;ijo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ik"-la-paz:before;T;	[o;;i ;@;["content;;;o;;@;""\e63b";;;	[ ;ik;iko;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;il"-juarez:before;T;	[o;;i ;@;["content;;;o;;@;""\e63c";;;	[ ;il;ilo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;im"-juanacatlan:before;T;	[o;;i ;@;["content;;;o;;@;""\e63d";;;	[ ;im;imo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;in"-jamaica:before;T;	[o;;i ;@;["content;;;o;;@;""\e63e";;;	[ ;in;ino;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;io"-iztapalapa:before;T;	[o;;i ;@;["content;;;o;;@;""\e63f";;;	[ ;io;ioo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ip"-iztacalco:before;T;	[o;;i ;@;["content;;;o;;@;""\e640";;;	[ ;ip;ipo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iq"-isabel-la-catolica:before;T;	[o;;i ;@;["content;;;o;;@;""\e641";;;	[ ;iq;iqo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ir"-insurgentes:before;T;	[o;;i ;@;["content;;;o;;@;""\e642";;;	[ ;ir;iro;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;is"-villa-de-aragon:before;T;	[o;;i ;@;["content;;;o;;@;""\e643";;;	[ ;is;iso;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;it"-valle-gomez:before;T;	[o;;i ;@;["content;;;o;;@;""\e644";;;	[ ;it;ito;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iu"-vallejo:before;T;	[o;;i ;@;["content;;;o;;@;""\e645";;;	[ ;iu;iuo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iv"-velodromo:before;T;	[o;;i ;@;["content;;;o;;@;""\e646";;;	[ ;iv;ivo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iw"-xola:before;T;	[o;;i ;@;["content;;;o;;@;""\e647";;;	[ ;iw;iwo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ix"-zapata:before;T;	[o;;i ;@;["content;;;o;;@;""\e648";;;	[ ;ix;ixo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iy"-zaragoza:before;T;	[o;;i ;@;["content;;;o;;@;""\e649";;;	[ ;iy;iyo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iz"-fray-servando:before;T;	[o;;i ;@;["content;;;o;;@;""\e64a";;;	[ ;iz;izo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i{"-ferreria:before;T;	[o;;i ;@;["content;;;o;;@;""\e64b";;;	[ ;i{;i{o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i|"-eugenia:before;T;	[o;;i ;@;["content;;;o;;@;""\e64c";;;	[ ;i|;i|o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i}"-escuadron-201:before;T;	[o;;i ;@;["content;;;o;;@;""\e64d";;;	[ ;i};i}o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i~"-ermita:before;T;	[o;;i ;@;["content;;;o;;@;""\e64e";;;	[ ;i~;i~o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i"-el-rosario:before;T;	[o;;i ;@;["content;;;o;;@;""\e64f";;;	[ ;i;io;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i{"-eduardo-molina:before;T;	[o;;i ;@;["content;;;o;;@;""\e650";;;	[ ;i{;i{o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i|"-ecatepec:before;T;	[o;;i ;@;["content;;;o;;@;""\e651";;;	[ ;i|;i|o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i}"-doctores:before;T;	[o;;i ;@;["content;;;o;;@;""\e652";;;	[ ;i};i}o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i~"-division-del-norte:before;T;	[o;;i ;@;["content;;;o;;@;""\e653";;;	[ ;i~;i~o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i"-deportivo-oceania:before;T;	[o;;i ;@;["content;;;o;;@;""\e654";;;	[ ;i;io;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÄ""-deportivo-18-de-marzo:before;T;	[o;;i ;@;["content;;;o;;@;""\e655";;;	[ ;iÄ;iÄo;
+;@;["5/* Estacion Deportivo 18 de Marzo -> Basilica */;;:;	[ ;iÅo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÇ"-basilica:before;T;	[o;;i ;@;["content;;;o;;@;""\e655";;;	[ ;iÇ;iÇo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÉ"-cuitlahuac:before;T;	[o;;i ;@;["content;;;o;;@;""\e656";;;	[ ;iÉ;iÉo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÑ"-cuauhtemoc:before;T;	[o;;i ;@;["content;;;o;;@;""\e657";;;	[ ;iÑ;iÑo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÖ"-cuatro-caminos:before;T;	[o;;i ;@;["content;;;o;;@;""\e658";;;	[ ;iÖ;iÖo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÜ"-coyuya:before;T;	[o;;i ;@;["content;;;o;;@;""\e659";;;	[ ;iÜ;iÜo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iá"-coyoacan:before;T;	[o;;i ;@;["content;;;o;;@;""\e65a";;;	[ ;iá;iáo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ià"-coplico:before;T;	[o;;i ;@;["content;;;o;;@;""\e65b";;;	[ ;ià;iào;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iâ"-consulado:before;T;	[o;;i ;@;["content;;;o;;@;""\e65c";;;	[ ;iâ;iâo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iä"-constituyentes:before;T;	[o;;i ;@;["content;;;o;;@;""\e65d";;;	[ ;iä;iäo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iã"!-constitucion-de-1917:before;T;	[o;;i ;@;["content;;;o;;@;""\e65e";;;	[ ;iã;ião;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iå"-colegio-militar:before;T;	[o;;i ;@;["content;;;o;;@;""\e65f";;;	[ ;iå;iåo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iç"-ciudad-deportiva:before;T;	[o;;i ;@;["content;;;o;;@;""\e660";;;	[ ;iç;iço;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ié"-ciudad-azteca:before;T;	[o;;i ;@;["content;;;o;;@;""\e661";;;	[ ;ié;iéo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iè"-chilpancingo:before;T;	[o;;i ;@;["content;;;o;;@;""\e662";;;	[ ;iè;ièo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iê"-chapultepec:before;T;	[o;;i ;@;["content;;;o;;@;""\e663";;;	[ ;iê;iêo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ië"-chabacano:before;T;	[o;;i ;@;["content;;;o;;@;""\e664";;;	[ ;ië;iëo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ií"!-cerro-de-la-estrella:before;T;	[o;;i ;@;["content;;;o;;@;""\e665";;;	[ ;ií;iío;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iì"-centro-medico:before;T;	[o;;i ;@;["content;;;o;;@;""\e666";;;	[ ;iì;iìo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iî"-candelaria:before;T;	[o;;i ;@;["content;;;o;;@;""\e667";;;	[ ;iî;iîo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iï"-canal-del-norte:before;T;	[o;;i ;@;["content;;;o;;@;""\e668";;;	[ ;iï;iïo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iñ"-canal-de-san-juan:before;T;	[o;;i ;@;["content;;;o;;@;""\e669";;;	[ ;iñ;iño;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;ió"-camarones:before;T;	[o;;i ;@;["content;;;o;;@;""\e66a";;;	[ ;ió;ióo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iò"-buenavista:before;T;	[o;;i ;@;["content;;;o;;@;""\e66b";;;	[ ;iò;iòo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iô"-buenavista-2:before;T;	[o;;i ;@;["content;;;o;;@;""\e66b";;;	[ ;iô;iôo;
+;@;["/* Estacion Metrobus */;;:;	[ ;iôo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iö"#-boulevard-puerto-aereo:before;T;	[o;;i ;@;["content;;;o;;@;""\e66c";;;	[ ;iö;iöo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iõ"-bosque-de-aragon:before;T;	[o;;i ;@;["content;;;o;;@;""\e66d";;;	[ ;iõ;iõo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iú"-bondojito:before;T;	[o;;i ;@;["content;;;o;;@;""\e66e";;;	[ ;iú;iúo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iù"-bellas-artes:before;T;	[o;;i ;@;["content;;;o;;@;""\e66f";;;	[ ;iù;iùo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iû" -barranca-del-muerto:before;T;	[o;;i ;@;["content;;;o;;@;""\e670";;;	[ ;iû;iûo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iü"-balderas:before;T;	[o;;i ;@;["content;;;o;;@;""\e671";;;	[ ;iü;iüo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i†"-balbuena:before;T;	[o;;i ;@;["content;;;o;;@;""\e672";;;	[ ;i†;i†o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i°"-atzcapotzalco:before;T;	[o;;i ;@;["content;;;o;;@;""\e673";;;	[ ;i°;i°o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¢" -autobuses-del-norte:before;T;	[o;;i ;@;["content;;;o;;@;""\e674";;;	[ ;i¢;i¢o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i£"-auditorio:before;T;	[o;;i ;@;["content;;;o;;@;""\e675";;;	[ ;i£;i£o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i§"-atlalilco:before;T;	[o;;i ;@;["content;;;o;;@;""\e676";;;	[ ;i§;i§o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i•"-aragon:before;T;	[o;;i ;@;["content;;;o;;@;""\e677";;;	[ ;i•;i•o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¶"-aquiles-serdan:before;T;	[o;;i ;@;["content;;;o;;@;""\e678";;;	[ ;i¶;i¶o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iß"-apatlaco:before;T;	[o;;i ;@;["content;;;o;;@;""\e679";;;	[ ;iß;ißo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i®"-allende:before;T;	[o;;i ;@;["content;;;o;;@;""\e67a";;;	[ ;i®;i®o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i©"-agricola-oriental:before;T;	[o;;i ;@;["content;;;o;;@;""\e67b";;;	[ ;i©;i©o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i™"-aculco:before;T;	[o;;i ;@;["content;;;o;;@;""\e67c";;;	[ ;i™;i™o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i´"-acatitla:before;T;	[o;;i ;@;["content;;;o;;@;""\e67d";;;	[ ;i´;i´o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¨"-garibaldi:before;T;	[o;;i ;@;["content;;;o;;@;""\e67e";;;	[ ;i¨;i¨o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i≠"-general-anaya:before;T;	[o;;i ;@;["content;;;o;;@;""\e67f";;;	[ ;i≠;i≠o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÆ"-gomez-farias:before;T;	[o;;i ;@;["content;;;o;;@;""\e680";;;	[ ;iÆ;iÆo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iØ"-guelatao:before;T;	[o;;i ;@;["content;;;o;;@;""\e681";;;	[ ;iØ;iØo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i∞"-guerrero:before;T;	[o;;i ;@;["content;;;o;;@;""\e682";;;	[ ;i∞;i∞o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i±"-hangares:before;T;	[o;;i ;@;["content;;;o;;@;""\e683";;;	[ ;i±;i±o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i≤"-hidalgo:before;T;	[o;;i ;@;["content;;;o;;@;""\e684";;;	[ ;i≤;i≤o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i≥"-hospital-general:before;T;	[o;;i ;@;["content;;;o;;@;""\e685";;;	[ ;i≥;i≥o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¥"-impulsora:before;T;	[o;;i ;@;["content;;;o;;@;""\e686";;;	[ ;i¥;i¥o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iµ"-indios-verdes:before;T;	[o;;i ;@;["content;;;o;;@;""\e687";;;	[ ;iµ;iµo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i∂"#-instituto-del-petroleo:before;T;	[o;;i ;@;["content;;;o;;@;""\e688";;;	[ ;i∂;i∂o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i∑"-olimpica:before;T;	[o;;i ;@;["content;;;o;;@;""\e689";;;	[ ;i∑;i∑o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i∏"-panteones:before;T;	[o;;i ;@;["content;;;o;;@;""\e68a";;;	[ ;i∏;i∏o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iπ"-pantitlan:before;T;	[o;;i ;@;["content;;;o;;@;""\e68b";;;	[ ;iπ;iπo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i∫"-portales:before;T;	[o;;i ;@;["content;;;o;;@;""\e68c";;;	[ ;i∫;i∫o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iª"-popotla:before;T;	[o;;i ;@;["content;;;o;;@;""\e68d";;;	[ ;iª;iªo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iº"-politecnico:before;T;	[o;;i ;@;["content;;;o;;@;""\e68e";;;	[ ;iº;iºo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iΩ"-san-antonio:before;T;	[o;;i ;@;["content;;;o;;@;""\e68f";;;	[ ;iΩ;iΩo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iæ"-san-cosme:before;T;	[o;;i ;@;["content;;;o;;@;""\e690";;;	[ ;iæ;iæo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iø"-san-joaquin:before;T;	[o;;i ;@;["content;;;o;;@;""\e691";;;	[ ;iø;iøo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¿"-tepito:before;T;	[o;;i ;@;["content;;;o;;@;""\e692";;;	[ ;i¿;i¿o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¡"-tasquena:before;T;	[o;;i ;@;["content;;;o;;@;""\e693";;;	[ ;i¡;i¡o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i¬"-tepalcates:before;T;	[o;;i ;@;["content;;;o;;@;""\e694";;;	[ ;i¬;i¬o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i√"-uam:before;T;	[o;;i ;@;["content;;;o;;@;""\e695";;;	[ ;i√;i√o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iƒ"-zocalo:before;T;	[o;;i ;@;["content;;;o;;@;""\e696";;;	[ ;iƒ;iƒo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i≈"-viveros:before;T;	[o;;i ;@;["content;;;o;;@;""\e697";;;	[ ;i≈;i≈o;
+;@;["//* Estacion Viveros -> Derechos Humanos */;;:;	[ ;i∆o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i«"-derechos-humanos:before;T;	[o;;i ;@;["content;;;o;;@;""\e697";;;	[ ;i«;i«o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i»"-villa-de-cortes:before;T;	[o;;i ;@;["content;;;o;;@;""\e698";;;	[ ;i»;i»o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i…"-viaducto:before;T;	[o;;i ;@;["content;;;o;;@;""\e699";;;	[ ;i…;i…o;
+;@;["/* Estaciones Linea 12 */;;:;	[ ;i o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÀ"%-hospital-20-de-noviembre:before;T;	[o;;i ;@;["content;;;o;;@;""\e69b";;;	[ ;iÀ;iÀo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÃ"-insurgentes-sur:before;T;	[o;;i ;@;["content;;;o;;@;""\e69c";;;	[ ;iÃ;iÃo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÕ"-lomas-estrella:before;T;	[o;;i ;@;["content;;;o;;@;""\e69d";;;	[ ;iÕ;iÕo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iŒ"-mexicaltzingo:before;T;	[o;;i ;@;["content;;;o;;@;""\e69e";;;	[ ;iŒ;iŒo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iœ"-nopalera:before;T;	[o;;i ;@;["content;;;o;;@;""\e69f";;;	[ ;iœ;iœo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i–"-olivos:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a0";;;	[ ;i–;i–o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i—""-parque-de-los-venados:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a1";;;	[ ;i—;i—o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i“"-periferico-oriente:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a2";;;	[ ;i“;i“o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i”" -san-andres-tomatlan:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a3";;;	[ ;i”;i”o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i‘"-tomatlan:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a3";;;	[ ;i‘;i‘o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i’"-tezonco:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a4";;;	[ ;i’;i’o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i÷"-tlahuac:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a5";;;	[ ;i÷;i÷o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i◊"-tlaltenco:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a6";;;	[ ;i◊;i◊o;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iÿ"-culhuacan:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a7";;;	[ ;iÿ;iÿo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;iŸ"-calle-11:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a8";;;	[ ;iŸ;iŸo;&;i ;@;'[".o;;	;@;"estacion-css-prefix;<"estacion_css_prefix;i⁄"-eje-central:before;T;	[o;;i ;@;["content;;;o;;@;""\e6a9";;;	[ ;i⁄;i⁄o;
+;@;["/* Estaciones Metrobus */;;:;	[ ;i‹;i

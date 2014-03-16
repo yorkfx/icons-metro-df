@@ -1,0 +1,477 @@
+3.2.10 (Media Mark)
+969acc8ad3f621c632f593311657a770f1538877
+o:Sass::Tree::RootNode
+:@template"H%// ---------------------------------------------------------------------------------------------------------------------
+//
+//  Author: Rafal Bromirski
+//  www: http://paranoida.com/
+//  twitter: http://twitter.com/paranoida
+//  dribbble: http://dribbble.com/paranoida
+//
+//  Licensed under a MIT License
+//
+// ---------------------------------------------------------------------------------------------------------------------
+//
+// Requirements:
+//   Sass 3.2.0+
+//
+//  Version:
+//   1.3                                      // developed on 14/11/2013
+//
+// Mixins:
+//   @ min-screen(width)                      // shortcut for @media screen and (min-width ...)
+//   @ max-screen(width)                      // shortcut for @media screen and (max-width ...)
+//   @ screen(min-width, max-width)           // shortcut for @media screen and (min-width ...) and (max-width ...)
+//   ---
+//   @ min-screen-height(height)              // shortcut for @media screen and (min-height ...)
+//   @ max-screen-height(height)              // shortcut for @media screen and (max-height ...)
+//   @ screen-height(min-height, max-height)  // shortcut for @media screen and (min-height ...) and (max-height ...)
+//   ---
+//   @ iphone3                                // only iPhone (2, 3G, 3GS) landscape & portrait
+//   @ iphone3(landscape)                     // only iPhone (2, 3G, 3GS) only landscape
+//   @ iphone3(portrait)                      // only iPhone (2, 3G, 3GS) only portrait
+//   ---
+//   @ iphone4                                // only iPhone (4, 4S) landscape & portrait
+//   @ iphone4(landscape)                     // only iPhone (4, 4S) only landscape
+//   @ iphone4(portrait)                      // only iPhone (4, 4S) only portrait
+//   ---
+//   @ iphone5                                // only iPhone (5) landscape & portrait
+//   @ iphone5(landscape)                     // only iPhone (5) only landscape
+//   @ iphone5(portrait)                      // only iPhone (5) only portrait
+//   ---
+//   @ ipad                                   // all iPads (1, 2, 3, 4, Mini) landscape & portrait
+//   @ ipad(landscape)                        // all iPads (1, 2, 3, 4, Mini) only landscape
+//   @ ipad(portrait)                         // all iPads (1, 2, 3, 4, Mini) only portrait
+//   ---
+//   @ ipad-retina                            // only iPad (3, 4) landscape & portrait
+//   @ ipad-retina(landscape)                 // only iPad (3, 4) only landscape
+//   @ ipad-retina(portrait)                  // only iPad (3, 4) only portrait
+//   ---
+//   @ hdpi(ratio)                            // devices with hidpi displays (default ratio: 1.3)
+//
+// ---------------------------------------------------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- screen ----------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@mixin screen($resMin, $resMax)
+{
+  @media screen and (min-width: $resMin) and (max-width: $resMax)
+  {
+    @content;
+  }
+}
+
+@mixin max-screen($res)
+{
+  @media screen and (max-width: $res)
+  {
+    @content;
+  }
+}
+
+@mixin min-screen($res)
+{
+  @media screen and (min-width: $res)
+  {
+    @content;
+  }
+}
+
+@mixin screen-height($resMin, $resMax)
+{
+  @media screen and (min-height: $resMin) and (max-height: $resMax)
+  {
+    @content;
+  }
+}
+
+@mixin max-screen-height($res)
+{
+  @media screen and (max-height: $res)
+  {
+    @content;
+  }
+}
+
+@mixin min-screen-height($res)
+{
+  @media screen and (min-height: $res)
+  {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- hdpi ------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Based on bourbon hidpi-media-queries file (https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_hidpi-media-query.scss)
+// HiDPI mixin. Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/)
+
+@mixin hdpi($ratio: 1.3)
+{
+  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
+  only screen and (min--moz-device-pixel-ratio: $ratio),
+  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
+  only screen and (min-resolution: #{round($ratio*96)}dpi),
+  only screen and (min-resolution: #{$ratio}dppx)
+  {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- iphone ----------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@mixin iphone3($orientation: all)
+{
+  $deviceMinWidth: 320px;
+  $deviceMaxWidth: 480px;
+  $devicePixelRatio: 1;
+
+  @if $orientation == all
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio)
+    {
+      @content;
+    }
+  }
+  @else
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
+    {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- iphone-retina ---------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@mixin iphone4($orientation: all)
+{
+  $deviceMinWidth: 320px;
+  $deviceMaxWidth: 480px;
+  $devicePixelRatio: 2;
+  $deviceAspectRatio: '2/3';
+
+  @if $orientation == all
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio)
+    {
+      @content;
+    }
+  }
+  @else
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: 2/3) and (orientation:#{$orientation})
+    {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- iphone-5 --------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@mixin iphone5($orientation: all)
+{
+  $deviceMinWidth: 320px;
+  $deviceMaxWidth: 568px;
+  $devicePixelRatio: 2;
+  $deviceAspectRatio: '40/71';
+
+  @if $orientation == all
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio)
+    {
+      @content;
+    }
+  }
+  @else
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (device-aspect-ratio: $deviceAspectRatio) and (orientation:#{$orientation})
+    {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- ipads (all) -----------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@mixin ipad($orientation: all)
+{
+  $deviceMinWidth: 768px;
+  $deviceMaxWidth: 1024px;
+
+  @if $orientation == all
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    {
+      @content;
+    }
+  }
+  @else
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (orientation:#{$orientation})
+    {
+      @content;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// --- ipad-retina -----------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------------
+
+@mixin ipad-retina($orientation: all)
+{
+  $deviceMinWidth: 768px;
+  $deviceMaxWidth: 1024px;
+  $devicePixelRatio: 2;
+
+  @if $orientation == all
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio)
+    {
+      @content;
+    }
+  }
+  @else
+  {
+    @media only screen and (min-device-width: $deviceMinWidth) and (max-device-width: $deviceMaxWidth)
+    and (-webkit-device-pixel-ratio: $devicePixelRatio) and (orientation:#{$orientation})
+    {
+      @content;
+    }
+  }
+}
+:@options{ :@has_childrenT:@children[o:Sass::Tree::CommentNode
+;@:@value["ﬁ
+/* ---------------------------------------------------------------------------------------------------------------------
+ *
+ *  Author: Rafal Bromirski
+ *  www: http://paranoida.com/
+ *  twitter: http://twitter.com/paranoida
+ *  dribbble: http://dribbble.com/paranoida
+ *
+ *  Licensed under a MIT License
+ *
+ * ---------------------------------------------------------------------------------------------------------------------
+ *
+ * Requirements:
+ *   Sass 3.2.0+
+ *
+ *  Version:
+ *   1.3                                      // developed on 14/11/2013
+ *
+ * Mixins:
+ *   @ min-screen(width)                      // shortcut for @media screen and (min-width ...)
+ *   @ max-screen(width)                      // shortcut for @media screen and (max-width ...)
+ *   @ screen(min-width, max-width)           // shortcut for @media screen and (min-width ...) and (max-width ...)
+ *   ---
+ *   @ min-screen-height(height)              // shortcut for @media screen and (min-height ...)
+ *   @ max-screen-height(height)              // shortcut for @media screen and (max-height ...)
+ *   @ screen-height(min-height, max-height)  // shortcut for @media screen and (min-height ...) and (max-height ...)
+ *   ---
+ *   @ iphone3                                // only iPhone (2, 3G, 3GS) landscape & portrait
+ *   @ iphone3(landscape)                     // only iPhone (2, 3G, 3GS) only landscape
+ *   @ iphone3(portrait)                      // only iPhone (2, 3G, 3GS) only portrait
+ *   ---
+ *   @ iphone4                                // only iPhone (4, 4S) landscape & portrait
+ *   @ iphone4(landscape)                     // only iPhone (4, 4S) only landscape
+ *   @ iphone4(portrait)                      // only iPhone (4, 4S) only portrait
+ *   ---
+ *   @ iphone5                                // only iPhone (5) landscape & portrait
+ *   @ iphone5(landscape)                     // only iPhone (5) only landscape
+ *   @ iphone5(portrait)                      // only iPhone (5) only portrait
+ *   ---
+ *   @ ipad                                   // all iPads (1, 2, 3, 4, Mini) landscape & portrait
+ *   @ ipad(landscape)                        // all iPads (1, 2, 3, 4, Mini) only landscape
+ *   @ ipad(portrait)                         // all iPads (1, 2, 3, 4, Mini) only portrait
+ *   ---
+ *   @ ipad-retina                            // only iPad (3, 4) landscape & portrait
+ *   @ ipad-retina(landscape)                 // only iPad (3, 4) only landscape
+ *   @ ipad-retina(portrait)                  // only iPad (3, 4) only portrait
+ *   ---
+ *   @ hdpi(ratio)                            // devices with hidpi displays (default ratio: 1.3)
+ *
+ * --------------------------------------------------------------------------------------------------------------------- */:
+@type:silent;	[ :
+@lineio;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- screen ----------------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;i8o:Sass::Tree::MixinDefNode;@:
+@name"screen:@splat0;T;	[o:Sass::Tree::MediaNode:
+@tabsi ;@;" ;T;	[o:Sass::Tree::ContentNode;@;	[ ;i@:@query["screen"
+ and "(o:Sass::Script::String	;@;"min-width;:identifier;i>": o:Sass::Script::Variable	;@;"resMin:@underscored_name"resMin;i>")"
+ and "(o;	;@;"max-width;;;i>": o;	;@;"resMax;"resMax;i>");i?:
+@args[[o;;@;"resMin;"resMin0[o;;@;"resMax;"resMax0;i=o;;@;"max-screen;0;T;	[o;;i ;@;" ;T;	[o;;@;	[ ;iH;["screen"
+ and "(o;	;@;"max-width;;;iF": o;	;@;"res;"res;iF");iG;[[o;;@;"res;"res0;iEo;;@;"min-screen;0;T;	[o;;i ;@;" ;T;	[o;;@;	[ ;iP;["screen"
+ and "(o;	;@;"min-width;;;iN": o;	;@;"res;"res;iN");iO;[[o;;@;"res;"res0;iMo;;@;"screen-height;0;T;	[o;;i ;@;" ;T;	[o;;@;	[ ;iX;["screen"
+ and "(o;	;@;"min-height;;;iV": o;	;@;"resMin;"resMin;iV")"
+ and "(o;	;@;"max-height;;;iV": o;	;@;"resMax;"resMax;iV");iW;[[o;;@;"resMin;"resMin0[o;;@;"resMax;"resMax0;iUo;;@;"max-screen-height;0;T;	[o;;i ;@;" ;T;	[o;;@;	[ ;i`;["screen"
+ and "(o;	;@;"max-height;;;i^": o;	;@;"res;"res;i^");i_;[[o;;@;"res;"res0;i]o;;@;"min-screen-height;0;T;	[o;;i ;@;" ;T;	[o;;@;	[ ;ih;["screen"
+ and "(o;	;@;"min-height;;;if": o;	;@;"res;"res;if");ig;[[o;;@;"res;"res0;ieo;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- hdpi ------------------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;ilo;
+
+;@;["/* Based on bourbon hidpi-media-queries file (https://github.com/thoughtbot/bourbon/blob/master/app/assets/stylesheets/css3/_hidpi-media-query.scss)
+ * HiDPI mixin. Default value set to 1.3 to target Google Nexus 7 (http://bjango.com/articles/min-device-pixel-ratio/) */;;;	[ ;ipo;;@;"	hdpi;0;T;	[o;;i ;@;" ;T;	[o;;@;	[ ;i{;[6"	only" "screen"
+ and "(o;	;@;"#-webkit-min-device-pixel-ratio;;;iu": o;	;@;"
+ratio;"
+ratio;iu")", "	only" "screen"
+ and "(o;	;@;" min--moz-device-pixel-ratio;;;iv": o;	;@;"
+ratio;"
+ratio;iv")@”"	only" "screen"
+ and "(o;	;@;"-o-min-device-pixel-ratio;;;iw": o: Sass::Script::Interpolation:@whitespace_beforei˝;@:@aftero;;F;@;o:Sass::Script::Number:@denominator_units[ ;@:@numerator_units[ :@original"1;i;iw:@originally_text:originally_text:	@mido;	;@;"/;;;iw:@whitespace_after0;iw:@before0;"F;$o;	;@;"
+ratio;"
+ratio;iw;%0;iw;&0")@”"	only" "screen"
+ and "(o;	;@;"min-resolution;;;ix": o;;i.;@;o;	;@;"dpi;;;ix;"F;$o:Sass::Script::Funcall:@keywords{ ;@;"
+round;0;[o:Sass::Script::Operation
+:@operator:
+times;@:@operand2o;;@Î;@; [ ;!"96;ie;ix:@operand1o;	;@;"
+ratio;"
+ratio;ix;ix;ix;%0;ix;&0")@”"	only" "screen"
+ and "(o;	;@;"min-resolution;;;iy": o;;ij;@;o;	;@;"	dppx;;;iy;"F;$o;	;@;"
+ratio;"
+ratio;iy;%0;iy;&0");iz;[[o;;@;"
+ratio;"
+ratioo;;@Î;@; [ ;!"1.3;f1.3 ÃÕ;is;ito;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- iphone ----------------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;io;;@;"iphone3;0;T;	[	o:Sass::Tree::VariableNode:@guarded0;@;"deviceMinWidth:
+@expro;;[ ;@; ["px;!"
+320px;i@;iÄ;	[ ;iÄo;.;/0;@;"deviceMaxWidth;0o;;[ ;@; ["px;!"
+480px;i‡;iÅ;	[ ;iÅo;.;/0;@;"devicePixelRatio;0o;;@Î;@; [ ;!"1;i;iÇ;	[ ;iÇu:Sass::Tree::IfNode‰[o:Sass::Script::Operation
+:@operator:eq:@options{ :@operand2o:Sass::Script::String	;@:@value"all:
+@type:identifier:
+@lineiÑ:@operand1o:Sass::Script::Variable	;@:
+@name"orientation:@underscored_name"orientation;iÑ;iÑu:Sass::Tree::IfNode[00[o:Sass::Tree::MediaNode:
+@tabsi :@options{ :@value" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;
+[ :
+@lineië:@query[ "	only" "screen"
+ and "(o:Sass::Script::String	;@;"min-device-width:
+@type:identifier;ié": o:Sass::Script::Variable	;@:
+@name"deviceMinWidth:@underscored_name"deviceMinWidth;ié")"
+ and "(o;	;@;"max-device-width;;;ié": o;	;@;"deviceMaxWidth;"deviceMaxWidth;ié")@"(o;	;@;"-webkit-device-pixel-ratio;;;iè": o;	;@;"devicePixelRatio;"devicePixelRatio;iè")@"(o;	;@;"orientation;;;iè": o: Sass::Script::Interpolation:@whitespace_before0;@:@after0:@originally_textF:	@mido;	;@;"orientation;"orientation;iè:@whitespace_after0;iè:@before0");iê[o:Sass::Tree::MediaNode:
+@tabsi ;@;" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;[ ;iâ:@query["	only" "screen"
+ and "(o;
+	;@;"min-device-width;;;iÜ": o;	;@;"deviceMinWidth;"deviceMinWidth;iÜ")"
+ and "(o;
+	;@;"max-device-width;;;iÜ": o;	;@;"deviceMaxWidth;"deviceMaxWidth;iÜ")@!"(o;
+	;@;"-webkit-device-pixel-ratio;;;iá": o;	;@;"devicePixelRatio;"devicePixelRatio;iá");ià;[[o;;@;"orientation;"orientationo;	;@;"all;;;i~;io;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- iphone-retina ---------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;iño;;@;"iphone4;0;T;	[
+o;.;/0;@;"deviceMinWidth;0o;;[ ;@; ["px;!"
+320px;i@;iú;	[ ;iúo;.;/0;@;"deviceMaxWidth;0o;;[ ;@; ["px;!"
+480px;i‡;iù;	[ ;iùo;.;/0;@;"devicePixelRatio;0o;;@Î;@; [ ;!"2;i;iû;	[ ;iûo;.;/0;@;"deviceAspectRatio;0o;	;@;"2/3;:string;iü;	[ ;iüu;1H[o:Sass::Script::Operation
+:@operator:eq:@options{ :@operand2o:Sass::Script::String	;@:@value"all:
+@type:identifier:
+@linei°:@operand1o:Sass::Script::Variable	;@:
+@name"orientation:@underscored_name"orientation;i°;i°u:Sass::Tree::IfNode[00[o:Sass::Tree::MediaNode:
+@tabsi :@options{ :@value" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;
+[ :
+@lineiÆ:@query[&"	only" "screen"
+ and "(o:Sass::Script::String	;@;"min-device-width:
+@type:identifier;i´": o:Sass::Script::Variable	;@:
+@name"deviceMinWidth:@underscored_name"deviceMinWidth;i´")"
+ and "(o;	;@;"max-device-width;;;i´": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i´")@"(o;	;@;"-webkit-device-pixel-ratio;;;i¨": o;	;@;"devicePixelRatio;"devicePixelRatio;i¨")@"(o;	;@;"device-aspect-ratio;;;i¨": o:Sass::Script::Operation
+:@operator:div;@:@operand2o:Sass::Script::Number:@denominator_units[ ;@:@numerator_units[ :@original"3;i;i¨:@operand1o;;@1;@;[ ;"2;i;i¨;i¨")@"(o;	;@;"orientation;;;i¨": o: Sass::Script::Interpolation:@whitespace_before0;@:@after0:@originally_textF:	@mido;	;@;"orientation;"orientation;i¨:@whitespace_after0;i¨:@before0");i≠[o:Sass::Tree::MediaNode:
+@tabsi ;@;" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;[ ;i¶:@query[ "	only" "screen"
+ and "(o;
+	;@;"min-device-width;;;i£": o;	;@;"deviceMinWidth;"deviceMinWidth;i£")"
+ and "(o;
+	;@;"max-device-width;;;i£": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i£")@!"(o;
+	;@;"-webkit-device-pixel-ratio;;;i§": o;	;@;"devicePixelRatio;"devicePixelRatio;i§")@!"(o;
+	;@;"device-aspect-ratio;;;i§": o;	;@;"deviceAspectRatio;"deviceAspectRatio;i§");i•;[[o;;@;"orientation;"orientationo;	;@;"all;;;iö;iõo;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- iphone-5 --------------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;i≥o;;@;"iphone5;0;T;	[
+o;.;/0;@;"deviceMinWidth;0o;;[ ;@; ["px;!"
+320px;i@;iπ;	[ ;iπo;.;/0;@;"deviceMaxWidth;0o;;[ ;@; ["px;!"
+568px;i8;i∫;	[ ;i∫o;.;/0;@;"devicePixelRatio;0o;;@Î;@; [ ;!"2;i;iª;	[ ;iªo;.;/0;@;"deviceAspectRatio;0o;	;@;"
+40/71;;2;iº;	[ ;iºu;1∫[o:Sass::Script::Operation
+:@operator:eq:@options{ :@operand2o:Sass::Script::String	;@:@value"all:
+@type:identifier:
+@lineiæ:@operand1o:Sass::Script::Variable	;@:
+@name"orientation:@underscored_name"orientation;iæ;iæu:Sass::Tree::IfNodev[00[o:Sass::Tree::MediaNode:
+@tabsi :@options{ :@value" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;
+[ :
+@lineiÀ:@query[&"	only" "screen"
+ and "(o:Sass::Script::String	;@;"min-device-width:
+@type:identifier;i»": o:Sass::Script::Variable	;@:
+@name"deviceMinWidth:@underscored_name"deviceMinWidth;i»")"
+ and "(o;	;@;"max-device-width;;;i»": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i»")@"(o;	;@;"-webkit-device-pixel-ratio;;;i…": o;	;@;"devicePixelRatio;"devicePixelRatio;i…")@"(o;	;@;"device-aspect-ratio;;;i…": o;	;@;"deviceAspectRatio;"deviceAspectRatio;i…")@"(o;	;@;"orientation;;;i…": o: Sass::Script::Interpolation:@whitespace_before0;@:@after0:@originally_textF:	@mido;	;@;"orientation;"orientation;i…:@whitespace_after0;i…:@before0");i [o:Sass::Tree::MediaNode:
+@tabsi ;@;" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;[ ;i√:@query[ "	only" "screen"
+ and "(o;
+	;@;"min-device-width;;;i¿": o;	;@;"deviceMinWidth;"deviceMinWidth;i¿")"
+ and "(o;
+	;@;"max-device-width;;;i¿": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i¿")@!"(o;
+	;@;"-webkit-device-pixel-ratio;;;i¡": o;	;@;"devicePixelRatio;"devicePixelRatio;i¡")@!"(o;
+	;@;"device-aspect-ratio;;;i¡": o;	;@;"deviceAspectRatio;"deviceAspectRatio;i¡");i¬;[[o;;@;"orientation;"orientationo;	;@;"all;;;i∑;i∏o;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- ipads (all) -----------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;i–o;;@;"	ipad;0;T;	[o;.;/0;@;"deviceMinWidth;0o;;[ ;@; ["px;!"
+768px;i ;i÷;	[ ;i÷o;.;/0;@;"deviceMaxWidth;0o;;[ ;@; ["px;!"1024px;i ;i◊;	[ ;i◊u;1[o:Sass::Script::Operation
+:@operator:eq:@options{ :@operand2o:Sass::Script::String	;@:@value"all:
+@type:identifier:
+@lineiŸ:@operand1o:Sass::Script::Variable	;@:
+@name"orientation:@underscored_name"orientation;iŸ;iŸu:Sass::Tree::IfNodeõ[00[o:Sass::Tree::MediaNode:
+@tabsi :@options{ :@value" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;
+[ :
+@lineiÂ:@query["	only" "screen"
+ and "(o:Sass::Script::String	;@;"min-device-width:
+@type:identifier;i‚": o:Sass::Script::Variable	;@:
+@name"deviceMinWidth:@underscored_name"deviceMinWidth;i‚")"
+ and "(o;	;@;"max-device-width;;;i‚": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i‚")@"(o;	;@;"orientation;;;i„": o: Sass::Script::Interpolation:@whitespace_before0;@:@after0:@originally_textF:	@mido;	;@;"orientation;"orientation;i„:@whitespace_after0;i„:@before0");i‰[o:Sass::Tree::MediaNode:
+@tabsi ;@;" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;[ ;i›:@query["	only" "screen"
+ and "(o;
+	;@;"min-device-width;;;i€": o;	;@;"deviceMinWidth;"deviceMinWidth;i€")"
+ and "(o;
+	;@;"max-device-width;;;i€": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i€");i‹;[[o;;@;"orientation;"orientationo;	;@;"all;;;i‘;i’o;
+
+;@;["m/* ---------------------------------------------------------------------------------------------------------------------
+ * --- ipad-retina -----------------------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------------------------------------- */;;;	[ ;iÍo;;@;"ipad-retina;0;T;	[	o;.;/0;@;"deviceMinWidth;0o;;[ ;@; ["px;!"
+768px;i ;i;	[ ;io;.;/0;@;"deviceMaxWidth;0o;;[ ;@; ["px;!"1024px;i ;iÒ;	[ ;iÒo;.;/0;@;"devicePixelRatio;0o;;@Î;@; [ ;!"2;i;iÚ;	[ ;iÚu;1Ê[o:Sass::Script::Operation
+:@operator:eq:@options{ :@operand2o:Sass::Script::String	;@:@value"all:
+@type:identifier:
+@lineiÙ:@operand1o:Sass::Script::Variable	;@:
+@name"orientation:@underscored_name"orientation;iÙ;iÙu:Sass::Tree::IfNode[00[o:Sass::Tree::MediaNode:
+@tabsi :@options{ :@value" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;
+[ :
+@linei:@query[ "	only" "screen"
+ and "(o:Sass::Script::String	;@;"min-device-width:
+@type:identifier;i˛": o:Sass::Script::Variable	;@:
+@name"deviceMinWidth:@underscored_name"deviceMinWidth;i˛")"
+ and "(o;	;@;"max-device-width;;;i˛": o;	;@;"deviceMaxWidth;"deviceMaxWidth;i˛")@"(o;	;@;"-webkit-device-pixel-ratio;;;iˇ": o;	;@;"devicePixelRatio;"devicePixelRatio;iˇ")@"(o;	;@;"orientation;;;iˇ": o: Sass::Script::Interpolation:@whitespace_before0;@:@after0:@originally_textF:	@mido;	;@;"orientation;"orientation;iˇ:@whitespace_after0;iˇ:@before0");i [o:Sass::Tree::MediaNode:
+@tabsi ;@;" :@has_childrenT:@children[o:Sass::Tree::ContentNode;@;[ ;i˘:@query["	only" "screen"
+ and "(o;
+	;@;"min-device-width;;;iˆ": o;	;@;"deviceMinWidth;"deviceMinWidth;iˆ")"
+ and "(o;
+	;@;"max-device-width;;;iˆ": o;	;@;"deviceMaxWidth;"deviceMaxWidth;iˆ")@!"(o;
+	;@;"-webkit-device-pixel-ratio;;;i˜": o;	;@;"devicePixelRatio;"devicePixelRatio;i˜");i¯;[[o;;@;"orientation;"orientationo;	;@;"all;;;iÓ;iÔ;i

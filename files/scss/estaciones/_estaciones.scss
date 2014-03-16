@@ -1,0 +1,220 @@
+@font-face {
+	font-family: 'estaciones';
+	src:url('../fonts/estaciones.eot');
+	src:url('../fonts/estaciones.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/estaciones.woff') format('woff'),
+		url('../fonts/estaciones.ttf') format('truetype'),
+		url('../fonts/estaciones.svg#estaciones') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Chrome Perfect Render */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'estaciones';
+    src: url('../fonts/estaciones.svg#estaciones') format('svg');
+  }
+}
+
+
+em[class^="estacion-"], em[class*=" estacion-"] {
+	color: black;
+	font-size: 2.5em;
+	font-family: 'estaciones';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+$estacion-css-prefix:   estacion !default;
+
+// Estaciones Suburbano
+.#{$estacion-css-prefix}-suburbano-tultilan:before {		content: "\e600";}
+.#{$estacion-css-prefix}-suburbano-tlalnepantla:before {	content: "\e601";}
+.#{$estacion-css-prefix}-suburbano-lecheria:before {		content: "\e602";}
+.#{$estacion-css-prefix}-suburbano-san-rafael:before {		content: "\e603";}
+.#{$estacion-css-prefix}-suburbano-fortuna:before {		content: "\e604";}
+.#{$estacion-css-prefix}-suburbano-cuautitlan:before {		content: "\e605";}
+.#{$estacion-css-prefix}-suburbano-buenavista:before {		content: "\e606";}
+
+// Estaciones Metro
+.#{$estacion-css-prefix}-universidad:before {			content: "\e607";}
+.#{$estacion-css-prefix}-tlatelolco:before {				content: "\e608";}
+.#{$estacion-css-prefix}-tezozomoc:before {				content: "\e609";}
+.#{$estacion-css-prefix}-terminal-aerea:before {			content: "\e60a";}
+.#{$estacion-css-prefix}-talisman:before {				content: "\e60b";}
+.#{$estacion-css-prefix}-tacubaya:before {				content: "\e60c";}
+.#{$estacion-css-prefix}-tacuba:before {				content: "\e60d";}
+.#{$estacion-css-prefix}-sevilla:before {				content: "\e60e";}
+.#{$estacion-css-prefix}-santa-marta:before {			content: "\e60f";}
+.#{$estacion-css-prefix}-santa-anita:before {			content: "\e610";}
+.#{$estacion-css-prefix}-san-pedro-de-los-pinos:before {	content: "\e611";}
+.#{$estacion-css-prefix}-san-lazaro:before {				content: "\e612";}
+.#{$estacion-css-prefix}-san-juan-de-letran:before {		content: "\e613";}
+.#{$estacion-css-prefix}-san-antonio-abad:before {		content: "\e614";}
+.#{$estacion-css-prefix}-salto-del-agua:before {			content: "\e615";}
+.#{$estacion-css-prefix}-romero-rubio:before {			content: "\e616";}
+.#{$estacion-css-prefix}-rio-de-los-remedios:before {		content: "\e617";}
+.#{$estacion-css-prefix}-ricardo-flores-magon:before {		content: "\e618";}
+.#{$estacion-css-prefix}-revolucion:before {				content: "\e619";}
+.#{$estacion-css-prefix}-refineria:before {				content: "\e61a";}
+.#{$estacion-css-prefix}-puebla:before {				content: "\e61b";}
+.#{$estacion-css-prefix}-potrero:before {				content: "\e61c";}
+.#{$estacion-css-prefix}-polanco:before {				content: "\e61d";}
+.#{$estacion-css-prefix}-plaza-de-la-transparencia:before {	content: "\e61e";}
+// Estacion Etiopia -> Plaza de la Transparencia
+.#{$estacion-css-prefix}-etiopia:before {				content: "\e61e";}
+.#{$estacion-css-prefix}-plaza-aragon:before {			content: "\e61f";}
+.#{$estacion-css-prefix}-pino-suarez:before {			content: "\e620";}
+.#{$estacion-css-prefix}-penon-viejo:before {			content: "\e621";}
+.#{$estacion-css-prefix}-patriotismo:before {			content: "\e622";}
+.#{$estacion-css-prefix}-oceania:before {				content: "\e623";}
+.#{$estacion-css-prefix}-observatorio:before {			content: "\e624";}
+.#{$estacion-css-prefix}-obrera:before {				content: "\e625";}
+.#{$estacion-css-prefix}-norte-45:before {				content: "\e626";}
+.#{$estacion-css-prefix}-normal:before {				content: "\e627";}
+.#{$estacion-css-prefix}-ninos-heroes:before {			content: "\e628";}
+.#{$estacion-css-prefix}-nezahualcoyotl:before {			content: "\e629";}
+.#{$estacion-css-prefix}-nativitas:before {				content: "\e62a";}
+.#{$estacion-css-prefix}-muzquiz:before {				content: "\e62b";}
+.#{$estacion-css-prefix}-morelos:before {				content: "\e62c";}
+.#{$estacion-css-prefix}-moctezuma:before {				content: "\e62d";}
+.#{$estacion-css-prefix}-mixiuhca:before {				content: "\e62e";}
+.#{$estacion-css-prefix}-mixcoac:before {				content: "\e62f";}
+.#{$estacion-css-prefix}-misterios:before {				content: "\e630";}
+.#{$estacion-css-prefix}-miguel-angel-de-quevedo:before {	content: "\e631";}
+.#{$estacion-css-prefix}-merced:before {				content: "\e632";}
+.#{$estacion-css-prefix}-martin-carrera:before {			content: "\e633";}
+.#{$estacion-css-prefix}-los-reyes:before {				content: "\e634";}
+.#{$estacion-css-prefix}-lindavista:before {				content: "\e635";}
+.#{$estacion-css-prefix}-lazaro-cardenas:before {			content: "\e636";}
+.#{$estacion-css-prefix}-lagunilla:before {				content: "\e637";}
+.#{$estacion-css-prefix}-la-villa:before {				content: "\e638";}
+.#{$estacion-css-prefix}-la-viga:before {				content: "\e639";}
+.#{$estacion-css-prefix}-la-raza:before {				content: "\e63a";}
+.#{$estacion-css-prefix}-la-paz:before {				content: "\e63b";}
+.#{$estacion-css-prefix}-juarez:before {				content: "\e63c";}
+.#{$estacion-css-prefix}-juanacatlan:before {			content: "\e63d";}
+.#{$estacion-css-prefix}-jamaica:before {				content: "\e63e";}
+.#{$estacion-css-prefix}-iztapalapa:before {				content: "\e63f";}
+.#{$estacion-css-prefix}-iztacalco:before {				content: "\e640";}
+.#{$estacion-css-prefix}-isabel-la-catolica:before {		content: "\e641";}
+.#{$estacion-css-prefix}-insurgentes:before {			content: "\e642";}
+.#{$estacion-css-prefix}-villa-de-aragon:before {			content: "\e643";}
+.#{$estacion-css-prefix}-valle-gomez:before {			content: "\e644";}
+.#{$estacion-css-prefix}-vallejo:before {				content: "\e645";}
+.#{$estacion-css-prefix}-velodromo:before {				content: "\e646";}
+.#{$estacion-css-prefix}-xola:before {					content: "\e647";}
+.#{$estacion-css-prefix}-zapata:before {				content: "\e648";}
+.#{$estacion-css-prefix}-zaragoza:before {				content: "\e649";}
+.#{$estacion-css-prefix}-fray-servando:before {			content: "\e64a";}
+.#{$estacion-css-prefix}-ferreria:before {				content: "\e64b";}
+.#{$estacion-css-prefix}-eugenia:before {				content: "\e64c";}
+.#{$estacion-css-prefix}-escuadron-201:before {			content: "\e64d";}
+.#{$estacion-css-prefix}-ermita:before {				content: "\e64e";}
+.#{$estacion-css-prefix}-el-rosario:before {				content: "\e64f";}
+.#{$estacion-css-prefix}-eduardo-molina:before {			content: "\e650";}
+.#{$estacion-css-prefix}-ecatepec:before {				content: "\e651";}
+.#{$estacion-css-prefix}-doctores:before {				content: "\e652";}
+.#{$estacion-css-prefix}-division-del-norte:before {		content: "\e653";}
+.#{$estacion-css-prefix}-deportivo-oceania:before {		content: "\e654";}
+.#{$estacion-css-prefix}-deportivo-18-de-marzo:before {	content: "\e655";}
+// Estacion Deportivo 18 de Marzo -> Basilica
+.#{$estacion-css-prefix}-basilica:before {				content: "\e655";}
+.#{$estacion-css-prefix}-cuitlahuac:before {				content: "\e656";}
+.#{$estacion-css-prefix}-cuauhtemoc:before {				content: "\e657";}
+.#{$estacion-css-prefix}-cuatro-caminos:before {			content: "\e658";}
+.#{$estacion-css-prefix}-coyuya:before {				content: "\e659";}
+.#{$estacion-css-prefix}-coyoacan:before {				content: "\e65a";}
+.#{$estacion-css-prefix}-coplico:before {				content: "\e65b";}
+.#{$estacion-css-prefix}-consulado:before {				content: "\e65c";}
+.#{$estacion-css-prefix}-constituyentes:before {			content: "\e65d";}
+.#{$estacion-css-prefix}-constitucion-de-1917:before {		content: "\e65e";}
+.#{$estacion-css-prefix}-colegio-militar:before {			content: "\e65f";}
+.#{$estacion-css-prefix}-ciudad-deportiva:before{ 		content: "\e660";}
+.#{$estacion-css-prefix}-ciudad-azteca:before {			content: "\e661";}
+.#{$estacion-css-prefix}-chilpancingo:before {			content: "\e662";}
+.#{$estacion-css-prefix}-chapultepec:before {			content: "\e663";}
+.#{$estacion-css-prefix}-chabacano:before {				content: "\e664";}
+.#{$estacion-css-prefix}-cerro-de-la-estrella:before {		content: "\e665";}
+.#{$estacion-css-prefix}-centro-medico:before {			content: "\e666";}
+.#{$estacion-css-prefix}-candelaria:before {				content: "\e667";}
+.#{$estacion-css-prefix}-canal-del-norte:before {			content: "\e668";}
+.#{$estacion-css-prefix}-canal-de-san-juan:before {		content: "\e669";}
+.#{$estacion-css-prefix}-camarones:before {				content: "\e66a";}
+.#{$estacion-css-prefix}-buenavista:before {				content: "\e66b";}
+.#{$estacion-css-prefix}-buenavista-2:before {			content: "\e66b";} // Estacion Metrobus
+.#{$estacion-css-prefix}-boulevard-puerto-aereo:before {	content: "\e66c";}
+.#{$estacion-css-prefix}-bosque-de-aragon:before {		content: "\e66d";}
+.#{$estacion-css-prefix}-bondojito:before {				content: "\e66e";}
+.#{$estacion-css-prefix}-bellas-artes:before {			content: "\e66f";}
+.#{$estacion-css-prefix}-barranca-del-muerto:before {		content: "\e670";}
+.#{$estacion-css-prefix}-balderas:before {				content: "\e671";}
+.#{$estacion-css-prefix}-balbuena:before {				content: "\e672";}
+.#{$estacion-css-prefix}-atzcapotzalco:before {			content: "\e673";}
+.#{$estacion-css-prefix}-autobuses-del-norte:before {		content: "\e674";}
+.#{$estacion-css-prefix}-auditorio:before {				content: "\e675";}
+.#{$estacion-css-prefix}-atlalilco:before {				content: "\e676";}
+.#{$estacion-css-prefix}-aragon:before {				content: "\e677";}
+.#{$estacion-css-prefix}-aquiles-serdan:before {			content: "\e678";}
+.#{$estacion-css-prefix}-apatlaco:before {				content: "\e679";}
+.#{$estacion-css-prefix}-allende:before {				content: "\e67a";}
+.#{$estacion-css-prefix}-agricola-oriental:before {		content: "\e67b";}
+.#{$estacion-css-prefix}-aculco:before {				content: "\e67c";}
+.#{$estacion-css-prefix}-acatitla:before {				content: "\e67d";}
+.#{$estacion-css-prefix}-garibaldi:before {				content: "\e67e";}
+.#{$estacion-css-prefix}-general-anaya:before {			content: "\e67f";}
+.#{$estacion-css-prefix}-gomez-farias:before {			content: "\e680";}
+.#{$estacion-css-prefix}-guelatao:before {				content: "\e681";}
+.#{$estacion-css-prefix}-guerrero:before {				content: "\e682";}
+.#{$estacion-css-prefix}-hangares:before {				content: "\e683";}
+.#{$estacion-css-prefix}-hidalgo:before {				content: "\e684";}
+.#{$estacion-css-prefix}-hospital-general:before {		content: "\e685";}
+.#{$estacion-css-prefix}-impulsora:before {				content: "\e686";}
+.#{$estacion-css-prefix}-indios-verdes:before {			content: "\e687";}
+.#{$estacion-css-prefix}-instituto-del-petroleo:before {	content: "\e688";}
+.#{$estacion-css-prefix}-olimpica:before {				content: "\e689";}
+.#{$estacion-css-prefix}-panteones:before {				content: "\e68a";}
+.#{$estacion-css-prefix}-pantitlan:before {				content: "\e68b";}
+.#{$estacion-css-prefix}-portales:before {				content: "\e68c";}
+.#{$estacion-css-prefix}-popotla:before {				content: "\e68d";}
+.#{$estacion-css-prefix}-politecnico:before {			content: "\e68e";}
+.#{$estacion-css-prefix}-san-antonio:before {			content: "\e68f";}
+.#{$estacion-css-prefix}-san-cosme:before {				content: "\e690";}
+.#{$estacion-css-prefix}-san-joaquin:before {			content: "\e691";}
+.#{$estacion-css-prefix}-tepito:before {				content: "\e692";}
+.#{$estacion-css-prefix}-tasquena:before {				content: "\e693";}
+.#{$estacion-css-prefix}-tepalcates:before {				content: "\e694";}
+.#{$estacion-css-prefix}-uam:before {					content: "\e695";}
+.#{$estacion-css-prefix}-zocalo:before {				content: "\e696";}
+.#{$estacion-css-prefix}-viveros:before {				content: "\e697";}
+// Estacion Viveros -> Derechos Humanos
+.#{$estacion-css-prefix}-derechos-humanos:before {		content: "\e697";}
+.#{$estacion-css-prefix}-villa-de-cortes:before {			content: "\e698";}
+.#{$estacion-css-prefix}-viaducto:before {				content: "\e699";}
+// Estaciones Linea 12
+.#{$estacion-css-prefix}-hospital-20-de-noviembre:before {	content: "\e69b";}
+.#{$estacion-css-prefix}-insurgentes-sur:before {			content: "\e69c";}
+.#{$estacion-css-prefix}-lomas-estrella:before {			content: "\e69d";}
+.#{$estacion-css-prefix}-mexicaltzingo:before {			content: "\e69e";}
+.#{$estacion-css-prefix}-nopalera:before {				content: "\e69f";}
+.#{$estacion-css-prefix}-olivos:before {				content: "\e6a0";}
+.#{$estacion-css-prefix}-parque-de-los-venados:before {	content: "\e6a1";}
+.#{$estacion-css-prefix}-periferico-oriente:before {		content: "\e6a2";}
+.#{$estacion-css-prefix}-san-andres-tomatlan:before {		content: "\e6a3";}
+.#{$estacion-css-prefix}-tomatlan:before {				content: "\e6a3";}
+.#{$estacion-css-prefix}-tezonco:before {				content: "\e6a4";}
+.#{$estacion-css-prefix}-tlahuac:before {				content: "\e6a5";}
+.#{$estacion-css-prefix}-tlaltenco:before {				content: "\e6a6";}
+.#{$estacion-css-prefix}-culhuacan:before {				content: "\e6a7";}
+.#{$estacion-css-prefix}-calle-11:before {				content: "\e6a8";}
+.#{$estacion-css-prefix}-eje-central:before {			content: "\e6a9";}
+
+// Estaciones Metrobus

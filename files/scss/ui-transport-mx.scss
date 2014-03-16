@@ -1,0 +1,13 @@
+@import "compass";
+@import "estaciones/variables";
+@import "estaciones/mixins";
+@import "estaciones/flex";
+@import "estaciones/estaciones";
+@import "estaciones/lineas";
+@import "estaciones/bar";
+@import "estaciones/list-lineas";
+
+
+body{
+	font-family: $font-family-sans-serif;
+}

@@ -1,0 +1,884 @@
+3.2.10 (Media Mark)
+e2be0e2b5f613e15d0514fe25acec515e8a6755f
+o:Sass::Tree::RootNode
+:@template"Ô3
+/**
+ * Animations
+ * --------------------------------------------------
+ * The animations in this file are "simple" - not too complex
+ * and pretty easy on performance. They can be overidden
+ * and enhanced easily.
+ */
+ $transition-duration: 250ms;
+
+
+/**
+ * Keyframes
+ * --------------------------------------------------
+ */
+
+$slide-in-up-function: cubic-bezier(.1, .7, .1, 1);
+@-webkit-keyframes slideInUp {
+  0% {
+    @include translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+  100% {
+    @include translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slideOutUp {
+  0% {
+    @include translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    @include translate3d(0, 100%, 0);
+    opacity: 0;
+  }
+}
+
+// Slide In From Left
+// -------------------------------
+
+@-webkit-keyframes slideInFromLeft {
+    from { -webkit-transform: translate3d(-100%, 0, 0); }
+    to { -webkit-transform: translate3d(0, 0, 0); }
+}
+@-moz-keyframes slideInFromLeft {
+    from { -moz-transform: translateX(-100%); }
+    to { -moz-transform: translateX(0); }
+}
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+
+// Slide In From Right
+// -------------------------------
+
+@-webkit-keyframes slideInFromRight {
+    from { -webkit-transform: translate3d(100%, 0, 0); }
+    to { -webkit-transform: translate3d(0, 0, 0); }
+}
+@-moz-keyframes slideInFromRight {
+    from { -moz-transform: translateX(100%); }
+    to { -moz-transform: translateX(0); }
+}
+@keyframes slideInFromRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+
+// Slide Out To Left
+// -------------------------------
+
+@-webkit-keyframes slideOutToleft {
+  from { -webkit-transform: translate3d(0, 0, 0); }
+  to { -webkit-transform: translate3d(-100%, 0, 0); }
+}
+@-moz-keyframes slideOutToleft {
+  from { -moz-transform: translateX(0); }
+  to { -moz-transform: translateX(-100%); }
+}
+@keyframes slideOutToLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+
+// Slide Out To Right
+// -------------------------------
+
+@-webkit-keyframes slideOutToRight {
+  from { -webkit-transform: translate3d(0, 0, 0); }
+  to { -webkit-transform: translate3d(100%, 0, 0); }
+}
+@-moz-keyframes slideOutToRight {
+  from { -moz-transform: translateX(0); }
+  to { -moz-transform: translateX(100%); }
+}
+@keyframes slideOutToRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+
+// Fade Out
+// -------------------------------
+
+@-webkit-keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@-moz-keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+
+// Fade In
+// -------------------------------
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+// Spin
+// -------------------------------
+
+@-webkit-keyframes spin {
+  100% { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+  100% { -moz-transform: rotate(360deg); }
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.no-animation {
+  > .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave {
+    @include transition(none);
+  }
+}
+.noop-animation {
+  > .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave {
+    @include transition(all cubic-bezier(0.250, 0.460, 0.450, 0.940) $transition-duration);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+
+// required for Android
+.ng-animate .pane {
+  position: absolute;
+}
+
+
+/**
+ * Slide Left-Right
+ * --------------------------------------------------
+ * NEW content slides IN from the RIGHT, OLD slides OUT to the LEFT
+ * Reverse: NEW content slides IN from the LEFT, OLD slides OUT to the RIGHT
+ */
+
+.slide-left-right {
+  > .ng-enter, &.ng-enter,
+  > .ng-leave, &.ng-leave {
+    @include transition(all ease-in-out $transition-duration);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  > .ng-enter, &.ng-enter {
+    /* NEW content placed far RIGHT BEFORE it slides IN from the RIGHT */
+    @include translate3d(100%, 0, 0);
+  }
+  > .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active {
+    /* NEW content ACTIVELY sliding IN from the RIGHT */
+    @include translate3d(0, 0, 0);
+    //.scroll { background: purple; } //for debugging
+  }
+  > .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active {
+    /* OLD content ACTIVELY sliding OUT to the LEFT */
+    @include translate3d(-100%, 0, 0);
+    //.scroll { background: green; } //for debugging
+  }
+
+  &.reverse {
+    > .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave {
+      @include transition(all ease-in-out $transition-duration);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    > .ng-enter, &.ng-enter {
+      /* NEW content placed far LEFT BEFORE it slides IN from the LEFT */
+      @include translate3d(-100%, 0, 0);
+    }
+    > .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active {
+      /* NEW content ACTIVELY sliding IN from the LEFT */
+      @include translate3d(0, 0, 0);
+      //.scroll { background: blue; } //for debugging
+    }
+    > .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active {
+      /* OLD content ACTIVELY sliding OUT to the RIGHT */
+      @include translate3d(100%, 0, 0);
+      //.scroll { background: yellow; } //for debugging
+    }
+  }
+}
+
+
+/**
+ * iOS7 style slide left to right
+ * --------------------------------------------------
+ */
+$ios7-timing-function: ease-in-out;
+$ios7-transition-duration: 250ms;
+
+.slide-left-right-ios7 {
+  > .ng-enter, &.ng-enter,
+  > .ng-leave, &.ng-leave {
+    @include transition(all $ios7-timing-function $ios7-transition-duration);
+    position: absolute;
+    top: 0;
+    right: -1px;
+    bottom: 0;
+    left: -1px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+  }
+  > .ng-enter, &.ng-enter {
+    /* NEW content placed far RIGHT BEFORE it slides IN from the RIGHT */
+    @include translate3d(100%, 0, 0);
+  }
+  > .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active {
+    /* NEW content ACTIVELY sliding IN from the RIGHT */
+    @include translate3d(0, 0, 0);
+    //.scroll { background: red; } //for debugging
+  }
+  > .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active {
+    /* OLD content ACTIVELY sliding OUT to the LEFT */
+    @include translate3d(-15%, 0, 0);
+    //.scroll { background: blue; } //for debugging
+  }
+
+  &.reverse {
+    > .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave {
+      @include transition(all $ios7-timing-function $ios7-transition-duration);
+      position: absolute;
+      top: 0;
+      right: -1px;
+      bottom: 0;
+      left: -1px;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+    }
+    > .ng-enter, &.ng-enter {
+      /* NEW content placed far LEFT BEFORE it slides IN from the LEFT */
+      @include translate3d(-100%, 0, 0);
+    }
+    > .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active {
+      /* NEW content ACTIVELY sliding IN from the LEFT */
+      @include translate3d(0, 0, 0);
+      //.scroll { background: orange; } //for debugging
+    }
+    > .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active {
+      /* OLD content ACTIVELY sliding OUT to the RIGHT */
+      @include translate3d(15%, 0, 0);
+      //.scroll { background: maroon; } //for debugging
+    }
+  }
+}
+
+
+
+.slide-in-left {
+  @include translate3d(0%,0,0);
+  &.ng-enter, > .ng-enter {
+    @include animation-name(slideInFromLeft);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+  &.ng-leave, > .ng-leave {
+    @include animation-name(slideOutToLeft);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+}
+
+
+.slide-in-left-add {
+  @include translate3d(100%,0,0);
+  @include animation-duration($transition-duration);
+  @include animation-timing-function(ease-in-out);
+  @include animation-fill-mode(both);
+}
+.slide-in-left-add-active {
+  @include animation-name(slideInFromLeft);
+}
+
+.slide-out-left {
+  @include translate3d(-100%,0,0);
+  &.ng-enter, > .ng-enter {
+    @include animation-name(slideOutToLeft);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+  &.ng-leave, > .ng-leave {
+    @include animation-name(slideOutToLeft);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+}
+
+.slide-out-left {
+}
+
+.slide-out-left-add {
+  @include translate3d(0,0,0);
+  @include animation-duration($transition-duration);
+  @include animation-timing-function(ease-in-out);
+  @include animation-fill-mode(both);
+}
+.slide-out-left-add-active {
+  @include animation-name(slideOutToLeft);
+}
+
+.slide-in-right {
+  @include translate3d(0%,0,0);
+  &.ng-enter, > .ng-enter {
+    @include animation-name(slideInFromRight);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+  &.ng-leave, > .ng-leave {
+    @include animation-name(slideInFromRight);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+}
+
+.slide-in-right-add {
+  @include translate3d(-100%,0,0);
+  @include animation-duration($transition-duration);
+  @include animation-timing-function(ease-in-out);
+  @include animation-fill-mode(both);
+}
+.slide-in-right-add-active {
+  @include animation-name(slideInFromRight);
+}
+
+.slide-out-right {
+  @include translate3d(100%,0,0);
+  &.ng-enter, > .ng-enter {
+    @include animation-name(slideOutToRight);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+  &.ng-leave, > .ng-leave {
+    @include animation-name(slideOutToRight);
+    @include animation-duration($transition-duration);
+    @include animation-timing-function(ease-in-out);
+    @include animation-fill-mode(both);
+  }
+}
+
+.slide-out-right {
+}
+.slide-out-right-add {
+  @include translate3d(0,0,0);
+  @include animation-duration($transition-duration);
+  @include animation-timing-function(ease-in-out);
+  @include animation-fill-mode(both);
+}
+.slide-out-right-add-active {
+  @include animation-name(slideOutToRight);
+}
+
+.slide-in-up {
+  // Start it down low
+  @include translate3d(0, 0%, 0);
+  opacity: 1;
+
+  &.ng-enter, .ng-enter {
+    // Start it down low
+    @include translate3d(0, 100%, 0);
+
+    @include animation-duration(400ms);
+    @include animation-timing-function($slide-in-up-function);
+    @include animation-fill-mode(both);
+    // Start hidden
+    opacity: 0;
+  }
+
+  &.ng-enter-active, .ng-enter-active {
+    @include animation-name(slideInUp);
+  }
+
+  &.ng-leave, .ng-leave {
+    @include animation-duration(400ms);
+    @include animation-timing-function($slide-in-up-function);
+    @include animation-fill-mode(both);
+  }
+
+  &.ng-leave-active, .ng-leave {
+    @include animation-name(slideOutUp);
+  }
+}
+
+.slide-in-up-add {
+  @include animation-duration(400ms);
+  @include animation-timing-function($slide-in-up-function);
+  @include animation-fill-mode(both);
+}
+.slide-in-up-add-active {
+  @include animation-name(slideInUp);
+}
+
+.slide-in-up-remove {
+  @include animation-duration(400ms);
+  @include animation-timing-function($slide-in-up-function);
+  @include animation-fill-mode(forwards);
+}
+.slide-in-up-remove-active {
+  @include animation-name(slideOutUp);
+}
+
+.fade-in {
+  @include animation(fadeOut 0.3s);
+  &.active {
+    @include animation(fadeIn 0.3s);
+  }
+}
+
+.fade-in-not-out {
+  &.ng-enter, .ng-enter {
+    @include animation(fadeIn 0.3s);
+    position: relative;
+  }
+  &.ng-leave, .ng-leave {
+    display: none;
+  }
+}
+
+
+/**
+ * Some component specific animations
+ */
+$nav-title-slide-ios7-delay: 350ms;
+.nav-title-slide-ios7 {
+  > .ng-enter, &.ng-enter,
+  > .ng-leave, &.ng-leave {
+    @include transition(all $nav-title-slide-ios7-delay);
+    @include transition-timing-function($ios7-timing-function);
+    opacity: 1;
+  }
+  > .ng-enter, &.ng-enter {
+    @include translate3d(30%, 0, 0);
+    opacity: 0;
+  }
+  > .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active {
+    @include translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  > .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active {
+    @include translate3d(-30%, 0, 0);
+    opacity: 0;
+  }
+
+}
+.reverse {
+  .nav-title-slide-ios7 {
+    > .ng-enter, &.ng-enter,
+    > .ng-leave, &.ng-leave {
+      @include transition(all $nav-title-slide-ios7-delay);
+      @include transition-timing-function($ios7-timing-function);
+      opacity: 1;
+    }
+    > .ng-enter, &.ng-enter {
+      @include translate3d(-30%, 0, 0);
+      opacity: 0;
+    }
+    > .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active {
+      @include translate3d(0, 0, 0);
+      opacity: 1;
+    }
+    > .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active {
+      @include translate3d(30%, 0, 0);
+      opacity: 0;
+    }
+  }
+}
+:@options{ :@has_childrenT:@children[Jo:Sass::Tree::CommentNode
+;@:@value["Ú/**
+ * Animations
+ * --------------------------------------------------
+ * The animations in this file are "simple" - not too complex
+ * and pretty easy on performance. They can be overidden
+ * and enhanced easily.
+ */:
+@type:normal;	[ :
+@lineio:Sass::Tree::VariableNode:@guarded0;@:
+@name"transition-duration:
+@expro:Sass::Script::Number:@denominator_units[ ;@:@numerator_units["ms:@original"
+250ms;iú;i;	[ ;io;
+
+;@;["O/**
+ * Keyframes
+ * --------------------------------------------------
+ */;;;	[ ;io;;0;@;"slide-in-up-function;o:Sass::Script::Funcall:@keywords{ ;@;"cubic-bezier:@splat0:
+@args[	o;;[ ;@;[ ;"0.1;f0.10000000000000001 ™š;io;;@ ;@;[ ;"0.7;f0.69999999999999996 ff;io;;@ ;@;[ ;"0.1;f0.10000000000000001 ™š;io;;@ ;@;[ ;"1;i;i;i;	[ ;io:Sass::Tree::DirectiveNode
+;@;["@-webkit-keyframes "slideInUp" ;T;	[o:Sass::Tree::RuleNode:
+@tabsi ;@:
+@rule["0%:@parsed_ruleso:"Sass::Selector::CommaSequence:@members[o:Sass::Selector::Sequence;![["0%" :@filename" ;i;T;	[o:Sass::Tree::MixinNode;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;io;;[ ;@;["%;"	100%;ii;io;;@ ;@;[ ;"0;i ;i;io:Sass::Tree::PropNode;i ;@;["opacity:@prop_syntax:new;o:Sass::Script::String;@;"0;:identifier;	[ ;i;io;;i ;@;["	100%;o; ;![o;";![["	100%" ;#" ;i;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;io;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i;i;io;
+;@;["@-webkit-keyframes "slideOutUp" ;T;	[o;;i ;@;["0%;o; ;![o;";![["0%" ;#" ;i";T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;i#o;;@ ;@;[ ;"0;i ;i#o;;@ ;@;[ ;"0;i ;i#;i#o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i$;i"o;;i ;@;["	100%;o; ;![o;";![["	100%" ;#" ;i&;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;i'o;;[ ;@;["%;"	100%;ii;i'o;;@ ;@;[ ;"0;i ;i';i'o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i(;i&;i!o;
+
+;@;["@/* Slide In From Left
+ * ------------------------------- */;:silent;	[ ;i,o;
+;@;["@-webkit-keyframes "slideInFromLeft" ;T;	[o;;i ;@;["	from;o; ;![o;";![o:#Sass::Selector::SimpleSequence
+;![o:Sass::Selector::Element	;["	from:@namespace0;#" ;i0:@subject0;#@Ñ:@sourceso:Set:
+@hash{ ;i0;#@Ñ;i0;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;[ ;@;["%;"
+-100%;i—;i0o;;@ ;@;[ ;"0;i ;i0o;;@ ;@;[ ;"0;i ;i0;i0;	[ ;i0;i0o;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i1;.0;#@ô;/o;0;1{ ;i1;#@ô;i1;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;@ ;@;[ ;"0;i ;i1o;;@ ;@;[ ;"0;i ;i1o;;@ ;@;[ ;"0;i ;i1;i1;	[ ;i1;i1;i/o;
+;@;["@-moz-keyframes "slideInFromLeft" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;i4;.0;#@;/o;0;1{ ;i4;#@;i4;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"
+-100%;i—;i4;i4;	[ ;i4;i4o;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i5;.0;#@8;/o;0;1{ ;i5;#@8;i5;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;i5;i5;	[ ;i5;i5;i3o;
+;@;["@keyframes "slideInFromLeft" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;i8;.0;#@Y;/o;0;1{ ;i8;#@Y;i8;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"
+-100%;i—;i8;i8;	[ ;i8;i8o;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i9;.0;#@v;/o;0;1{ ;i9;#@v;i9;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;i9;i9;	[ ;i9;i9;i7o;
+
+;@;["A/* Slide In From Right
+ * ------------------------------- */;;*;	[ ;i=o;
+;@;["@-webkit-keyframes "slideInFromRight" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iA;.0;#@›;/o;0;1{ ;iA;#@›;iA;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;[ ;@;["%;"	100%;ii;iAo;;@ ;@;[ ;"0;i ;iAo;;@ ;@;[ ;"0;i ;iA;iA;	[ ;iA;iAo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iB;.0;#@¾;/o;0;1{ ;iB;#@¾;iB;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;@ ;@;[ ;"0;i ;iBo;;@ ;@;[ ;"0;i ;iBo;;@ ;@;[ ;"0;i ;iB;iB;	[ ;iB;iB;i@o;
+;@;["@-moz-keyframes "slideInFromRight" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iE;.0;#@å;/o;0;1{ ;iE;#@å;iE;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"	100%;ii;iE;iE;	[ ;iE;iEo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iF;.0;#@;/o;0;1{ ;iF;#@;iF;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;iF;iF;	[ ;iF;iF;iDo;
+;@;["@keyframes "slideInFromRight" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iI;.0;#@#;/o;0;1{ ;iI;#@#;iI;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"	100%;ii;iI;iI;	[ ;iI;iIo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iJ;.0;#@@;/o;0;1{ ;iJ;#@@;iJ;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;iJ;iJ;	[ ;iJ;iJ;iHo;
+
+;@;["?/* Slide Out To Left
+ * ------------------------------- */;;*;	[ ;iNo;
+;@;["@-webkit-keyframes "slideOutToleft" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iR;.0;#@e;/o;0;1{ ;iR;#@e;iR;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;@ ;@;[ ;"0;i ;iRo;;@ ;@;[ ;"0;i ;iRo;;@ ;@;[ ;"0;i ;iR;iR;	[ ;iR;iRo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iS;.0;#@†;/o;0;1{ ;iS;#@†;iS;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;[ ;@;["%;"
+-100%;i—;iSo;;@ ;@;[ ;"0;i ;iSo;;@ ;@;[ ;"0;i ;iS;iS;	[ ;iS;iS;iQo;
+;@;["@-moz-keyframes "slideOutToleft" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iV;.0;#@¯;/o;0;1{ ;iV;#@¯;iV;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;iV;iV;	[ ;iV;iVo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iW;.0;#@Ê;/o;0;1{ ;iW;#@Ê;iW;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"
+-100%;i—;iW;iW;	[ ;iW;iW;iUo;
+;@;["@keyframes "slideOutToLeft" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iZ;.0;#@í;/o;0;1{ ;iZ;#@í;iZ;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;iZ;iZ;	[ ;iZ;iZo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i[;.0;#@;/o;0;1{ ;i[;#@;i[;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"
+-100%;i—;i[;i[;	[ ;i[;i[;iYo;
+
+;@;["@/* Slide Out To Right
+ * ------------------------------- */;;*;	[ ;i_o;
+;@;["@-webkit-keyframes "slideOutToRight" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;ic;.0;#@/;/o;0;1{ ;ic;#@/;ic;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;@ ;@;[ ;"0;i ;ico;;@ ;@;[ ;"0;i ;ico;;@ ;@;[ ;"0;i ;ic;ic;	[ ;ic;ico;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;id;.0;#@P;/o;0;1{ ;id;#@P;id;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"translate3d;0;[o;;[ ;@;["%;"	100%;ii;ido;;@ ;@;[ ;"0;i ;ido;;@ ;@;[ ;"0;i ;id;id;	[ ;id;id;ibo;
+;@;["@-moz-keyframes "slideOutToRight" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;ig;.0;#@y;/o;0;1{ ;ig;#@y;ig;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;ig;ig;	[ ;ig;igo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;ih;.0;#@”;/o;0;1{ ;ih;#@”;ih;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"	100%;ii;ih;ih;	[ ;ih;ih;ifo;
+;@;["@keyframes "slideOutToRight" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;ik;.0;#@·;/o;0;1{ ;ik;#@·;ik;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;@ ;@;[ ;"0;i ;ik;ik;	[ ;ik;iko;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;il;.0;#@Ò;/o;0;1{ ;il;#@Ò;il;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"translateX;0;[o;;[ ;@;["%;"	100%;ii;il;il;	[ ;il;il;ijo;
+
+;@;["6/* Fade Out
+ * ------------------------------- */;;*;	[ ;ipo;
+;@;["@-webkit-keyframes "fadeOut" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;it;.0;#@ù;/o;0;1{ ;it;#@ù;it;T;	[o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;it;ito;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iu;.0;#@;/o;0;1{ ;iu;#@;iu;T;	[o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;iu;iu;iso;
+;@;["@-moz-keyframes "fadeOut" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;ix;.0;#@+;/o;0;1{ ;ix;#@+;ix;T;	[o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;ix;ixo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;iy;.0;#@A;/o;0;1{ ;iy;#@A;iy;T;	[o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;iy;iy;iwo;
+;@;["@keyframes "fadeOut" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;i|;.0;#@];/o;0;1{ ;i|;#@];i|;T;	[o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i|;i|o;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i};.0;#@s;/o;0;1{ ;i};#@s;i};T;	[o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i};i};i{o;
+
+;@;["5/* Fade In
+ * ------------------------------- */;;*;	[ ;i|o;
+;@;["@-webkit-keyframes "fadeIn" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;i€;.0;#@“;/o;0;1{ ;i€;#@“;i€;T;	[o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i€;i€o;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i;.0;#@©;/o;0;1{ ;i;#@©;i;T;	[o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i;i;io;
+;@;["@-moz-keyframes "fadeIn" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;i„;.0;#@Å;/o;0;1{ ;i„;#@Å;i„;T;	[o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i„;i„o;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i…;.0;#@Û;/o;0;1{ ;i…;#@Û;i…;T;	[o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i…;i…;iƒo;
+;@;["@keyframes "fadeIn" ;T;	[o;;i ;@;["	from;o; ;![o;";![o;+
+;![o;,	;["	from;-0;#" ;iˆ;.0;#@÷;/o;0;1{ ;iˆ;#@÷;iˆ;T;	[o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;iˆ;iˆo;;i ;@;["to;o; ;![o;";![o;+
+;![o;,	;["to;-0;#" ;i‰;.0;#@;/o;0;1{ ;i‰;#@;i‰;T;	[o;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i‰;i‰;i‡o;
+
+;@;["2/* Spin
+ * ------------------------------- */;;*;	[ ;io;
+;@;["@-webkit-keyframes "	spin" ;T;	[o;;i ;@;["	100%;o; ;![o;";![["	100%" ;#" ;i‘;T;	[o;%;i ;@;["-webkit-transform;&;';o;;{ ;@;"rotate;0;[o;;[ ;@;["deg;"360deg;ih;i‘;i‘;	[ ;i‘;i‘;io;
+;@;["@-moz-keyframes "	spin" ;T;	[o;;i ;@;["	100%;o; ;![o;";![["	100%" ;#" ;i”;T;	[o;%;i ;@;["-moz-transform;&;';o;;{ ;@;"rotate;0;[o;;[ ;@;["deg;"360deg;ih;i”;i”;	[ ;i”;i”;i“o;
+;@;["@keyframes "	spin" ;T;	[o;;i ;@;["	100%;o; ;![o;";![["	100%" ;#" ;i—;T;	[o;%;i ;@;["transform;&;';o;;{ ;@;"rotate;0;[o;;[ ;@;["deg;"360deg;ih;i—;i—;	[ ;i—;i—;i–o;;i ;@;[".no-animation;o; ;![o;";![o;+
+;![o:Sass::Selector::Class;["no-animation;#" ;iš;.0;#@„;/o;0;1{ ;iš;#@„;iš;T;	[o;;i ;@;["5> .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;i›;.0;#@•;/o;0;1{ ;i›o;";![o;+
+;![o:Sass::Selector::Parent;#@•;i›o;2;["ng-enter;#@•;i›;.0;#@•;/o;0;1{ ;i›o;";![">o;+
+;![o;2;["ng-leave;#@•;i›;.0;#@•;/o;0;1{ ;i›o;";![o;+
+;![o;3;#@•;i›o;2;["ng-leave;#@•;i›;.0;#@•;/o;0;1{ ;i›;#@•;i›;T;	[o;$;{ ;@;"transition;0;	[ ;[o;(	;@;"	none;;);iœ;iœ;i›;išo;;i ;@;[".noop-animation;o; ;![o;";![o;+
+;![o;2;["noop-animation;#" ;iŸ;.0;#@Ê;/o;0;1{ ;iŸ;#@Ê;iŸ;T;	[o;;i ;@;["5> .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;i ;.0;#@Û;/o;0;1{ ;i o;";![o;+
+;![o;3;#@Û;i o;2;["ng-enter;#@Û;i ;.0;#@Û;/o;0;1{ ;i o;";![">o;+
+;![o;2;["ng-leave;#@Û;i ;.0;#@Û;/o;0;1{ ;i o;";![o;+
+;![o;3;#@Û;i o;2;["ng-leave;#@Û;i ;.0;#@Û;/o;0;1{ ;i ;#@Û;i ;T;	[o;$;{ ;@;"transition;0;	[ ;[o:Sass::Script::List	;@;[o;(	;@;"all;;);i¡o;;{ ;@;"cubic-bezier;0;[	o;;@ ;@;[ ;"	0.25;f	0.25;i¡o;;@ ;@;[ ;"	0.46;f0.46000000000000002 =q;i¡o;;@ ;@;[ ;"	0.45;f0.45000000000000001 ÌÍ;i¡o;;@ ;@;[ ;"	0.94;f0.93999999999999995 ®;i¡;i¡o:Sass::Script::Variable	;@;"transition-duration:@underscored_name"transition_duration;i¡:@separator:
+space;i¡;i¡o;%;i ;@;["position;&;';o;(;@;"absolute;;);	[ ;i¢o;%;i ;@;["top;&;';o;(;@;"0;;);	[ ;i£o;%;i ;@;["
+right;&;';o;(;@;"0;;);	[ ;i¤o;%;i ;@;["bottom;&;';o;(;@;"0;;);	[ ;i¥o;%;i ;@;["	left;&;';o;(;@;"0;;);	[ ;i¦;i ;iŸo;
+
+;@;["/* required for Android */;;*;	[ ;i«o;;i ;@;[".ng-animate .pane;o; ;![o;";![o;+
+;![o;2;["ng-animate;#" ;i¬;.0;#@K;/o;0;1{ ;i¬o;+
+;![o;2;["	pane;#@K;i¬;.0;#@K;/o;0;1{ ;i¬;#@K;i¬;T;	[o;%;i ;@;["position;&;';o;(;@;"absolute;;);	[ ;i­;i¬o;
+
+;@;["â/**
+ * Slide Left-Right
+ * --------------------------------------------------
+ * NEW content slides IN from the RIGHT, OLD slides OUT to the LEFT
+ * Reverse: NEW content slides IN from the LEFT, OLD slides OUT to the RIGHT
+ */;;;	[ ;i±o;;i ;@;[".slide-left-right;o; ;![o;";![o;+
+;![o;2;["slide-left-right;#" ;i¸;.0;#@l;/o;0;1{ ;i¸;#@l;i¸;T;	[
+o;;i ;@;["7> .ng-enter, &.ng-enter,
+  > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;iº;.0;#@};/o;0;1{ ;iºo;";![o;+
+;![o;3;#@};iºo;2;["ng-enter;#@};iº;.0;#@};/o;0;1{ ;iºo;";!["
+">o;+
+;![o;2;["ng-leave;#@};iº;.0;#@};/o;0;1{ ;iºo;";![o;+
+;![o;3;#@};iºo;2;["ng-leave;#@};iº;.0;#@};/o;0;1{ ;iº;#@};iº;T;	[o;$;{ ;@;"transition;0;	[ ;[o;4	;@;[o;(	;@;"all;;);i»o;(	;@;"ease-in-out;;);i»o;5	;@;"transition-duration;6"transition_duration;i»;7;8;i»;i»o;%;i ;@;["position;&;';o;(;@;"absolute;;);	[ ;i¼o;%;i ;@;["top;&;';o;(;@;"0;;);	[ ;i½o;%;i ;@;["
+right;&;';o;(;@;"0;;);	[ ;i¾o;%;i ;@;["bottom;&;';o;(;@;"0;;);	[ ;i¿o;%;i ;@;["	left;&;';o;(;@;"0;;);	[ ;iÀ;iºo;;i ;@;["> .ng-enter, &.ng-enter;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iÂ;.0;#@Ù;/o;0;1{ ;iÂo;";![o;+
+;![o;3;#@Ù;iÂo;2;["ng-enter;#@Ù;iÂ;.0;#@Ù;/o;0;1{ ;iÂ;#@Ù;iÂ;T;	[o;
+
+;@;["J/* NEW content placed far RIGHT BEFORE it slides IN from the RIGHT */;;;	[ ;iÃo;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	100%;ii;iÄo;;@ ;@;[ ;"0;i ;iÄo;;@ ;@;[ ;"0;i ;iÄ;iÄ;iÂo;;i ;@;["<> .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iÆo;2;["ng-enter-active;#@;iÆ;.0;#@;/o;0;1{ ;iÆo;";![o;+
+;![o;3;#@;iÆo;2;["ng-enter;#@;iÆo;2;["ng-enter-active;#@;iÆ;.0;#@;/o;0;1{ ;iÆ;#@;iÆ;T;	[o;
+
+;@;["9/* NEW content ACTIVELY sliding IN from the RIGHT */;;;	[ ;iÇo;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;iÈo;;@ ;@;[ ;"0;i ;iÈo;;@ ;@;[ ;"0;i ;iÈ;iÈo;
+
+;@;["9/*.scroll { background: purple; } //for debugging */;;*;	[ ;iÉ;iÆo;;i ;@;["<> .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active;o; ;![o;";![">o;+
+;![o;2;["ng-leave;#" ;iËo;2;["ng-leave-active;#@?;iË;.0;#@?;/o;0;1{ ;iËo;";![o;+
+;![o;3;#@?;iËo;2;["ng-leave;#@?;iËo;2;["ng-leave-active;#@?;iË;.0;#@?;/o;0;1{ ;iË;#@?;iË;T;	[o;
+
+;@;["7/* OLD content ACTIVELY sliding OUT to the LEFT */;;;	[ ;iÌo;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"
+-100%;i—;iÍo;;@ ;@;[ ;"0;i ;iÍo;;@ ;@;[ ;"0;i ;iÍ;iÍo;
+
+;@;["8/*.scroll { background: green; } //for debugging */;;*;	[ ;iÎ;iËo;;i ;@;["&.reverse;o; ;![o;";![o;+
+;![o;3;#" ;iÑo;2;["reverse;#@u;iÑ;.0;#@u;/o;0;1{ ;iÑ;#@u;iÑ;T;	[	o;;i ;@;["5> .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;iÒ;.0;#@‰;/o;0;1{ ;iÒo;";![o;+
+;![o;3;#@‰;iÒo;2;["ng-enter;#@‰;iÒ;.0;#@‰;/o;0;1{ ;iÒo;";![">o;+
+;![o;2;["ng-leave;#@‰;iÒ;.0;#@‰;/o;0;1{ ;iÒo;";![o;+
+;![o;3;#@‰;iÒo;2;["ng-leave;#@‰;iÒ;.0;#@‰;/o;0;1{ ;iÒ;#@‰;iÒ;T;	[o;$;{ ;@;"transition;0;	[ ;[o;4	;@;[o;(	;@;"all;;);iÓo;(	;@;"ease-in-out;;);iÓo;5	;@;"transition-duration;6"transition_duration;iÓ;7;8;iÓ;iÓo;%;i ;@;["position;&;';o;(;@;"absolute;;);	[ ;iÔo;%;i ;@;["top;&;';o;(;@;"0;;);	[ ;iÕo;%;i ;@;["
+right;&;';o;(;@;"0;;);	[ ;iÖo;%;i ;@;["bottom;&;';o;(;@;"0;;);	[ ;i×o;%;i ;@;["	left;&;';o;(;@;"0;;);	[ ;iØ;iÒo;;i ;@;["> .ng-enter, &.ng-enter;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iÚ;.0;#@ä;/o;0;1{ ;iÚo;";![o;+
+;![o;3;#@ä;iÚo;2;["ng-enter;#@ä;iÚ;.0;#@ä;/o;0;1{ ;iÚ;#@ä;iÚ;T;	[o;
+
+;@;["H/* NEW content placed far LEFT BEFORE it slides IN from the LEFT */;;;	[ ;iÛo;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"
+-100%;i—;iÜo;;@ ;@;[ ;"0;i ;iÜo;;@ ;@;[ ;"0;i ;iÜ;iÜ;iÚo;;i ;@;["<> .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iŞo;2;["ng-enter-active;#@;iŞ;.0;#@;/o;0;1{ ;iŞo;";![o;+
+;![o;3;#@;iŞo;2;["ng-enter;#@;iŞo;2;["ng-enter-active;#@;iŞ;.0;#@;/o;0;1{ ;iŞ;#@;iŞ;T;	[o;
+
+;@;["8/* NEW content ACTIVELY sliding IN from the LEFT */;;;	[ ;ißo;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;iào;;@ ;@;[ ;"0;i ;iào;;@ ;@;[ ;"0;i ;ià;iào;
+
+;@;["7/*.scroll { background: blue; } //for debugging */;;*;	[ ;iá;iŞo;;i ;@;["<> .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active;o; ;![o;";![">o;+
+;![o;2;["ng-leave;#" ;ião;2;["ng-leave-active;#@J;iã;.0;#@J;/o;0;1{ ;ião;";![o;+
+;![o;3;#@J;ião;2;["ng-leave;#@J;ião;2;["ng-leave-active;#@J;iã;.0;#@J;/o;0;1{ ;iã;#@J;iã;T;	[o;
+
+;@;["8/* OLD content ACTIVELY sliding OUT to the RIGHT */;;;	[ ;iäo;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	100%;ii;iåo;;@ ;@;[ ;"0;i ;iåo;;@ ;@;[ ;"0;i ;iå;iåo;
+
+;@;["9/*.scroll { background: yellow; } //for debugging */;;*;	[ ;iæ;iã;iÑ;i¸o;
+
+;@;["d/**
+ * iOS7 style slide left to right
+ * --------------------------------------------------
+ */;;;	[ ;iìo;;0;@;"ios7-timing-function;o;(	;@;"ease-in-out;;);iğ;	[ ;iğo;;0;@;"ios7-transition-duration;o;;[ ;@;["ms;"
+250ms;iú;iñ;	[ ;iño;;i ;@;[".slide-left-right-ios7;o; ;![o;";![o;+
+;![o;2;["slide-left-right-ios7;#" ;ió;.0;#@“;/o;0;1{ ;ió;#@“;ió;T;	[
+o;;i ;@;["7> .ng-enter, &.ng-enter,
+  > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;iõ;.0;#@¤;/o;0;1{ ;iõo;";![o;+
+;![o;3;#@¤;iõo;2;["ng-enter;#@¤;iõ;.0;#@¤;/o;0;1{ ;iõo;";!["
+">o;+
+;![o;2;["ng-leave;#@¤;iõ;.0;#@¤;/o;0;1{ ;iõo;";![o;+
+;![o;3;#@¤;iõo;2;["ng-leave;#@¤;iõ;.0;#@¤;/o;0;1{ ;iõ;#@¤;iõ;T;	[o;$;{ ;@;"transition;0;	[ ;[o;4	;@;[o;(	;@;"all;;);iöo;5	;@;"ios7-timing-function;6"ios7_timing_function;iöo;5	;@;"ios7-transition-duration;6"ios7_transition_duration;iö;7;8;iö;iöo;%;i ;@;["position;&;';o;(;@;"absolute;;);	[ ;i÷o;%;i ;@;["top;&;';o;(;@;"0;;);	[ ;iøo;%;i ;@;["
+right;&;';o;(;@;"	-1px;;);	[ ;iùo;%;i ;@;["bottom;&;';o;(;@;"0;;);	[ ;iúo;%;i ;@;["	left;&;';o;(;@;"	-1px;;);	[ ;iûo;%;i ;@;["border-left;&;';o;(;@;"1px solid #ddd;;);	[ ;iüo;%;i ;@;["border-right;&;';o;(;@;"1px solid #ddd;;);	[ ;iı;iõo;;i ;@;["> .ng-enter, &.ng-enter;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iÿ;.0;#@	;/o;0;1{ ;iÿo;";![o;+
+;![o;3;#@	;iÿo;2;["ng-enter;#@	;iÿ;.0;#@	;/o;0;1{ ;iÿ;#@	;iÿ;T;	[o;
+
+;@;["J/* NEW content placed far RIGHT BEFORE it slides IN from the RIGHT */;;;	[ ;i o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	100%;ii;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;i;iÿo;;i ;@;["<> .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;io;2;["ng-enter-active;#@<	;i;.0;#@<	;/o;0;1{ ;io;";![o;+
+;![o;3;#@<	;io;2;["ng-enter;#@<	;io;2;["ng-enter-active;#@<	;i;.0;#@<	;/o;0;1{ ;i;#@<	;i;T;	[o;
+
+;@;["9/* NEW content ACTIVELY sliding IN from the RIGHT */;;;	[ ;io;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;io;
+
+;@;["6/*.scroll { background: red; } //for debugging */;;*;	[ ;i;io;;i ;@;["<> .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active;o; ;![o;";![">o;+
+;![o;2;["ng-leave;#" ;io;2;["ng-leave-active;#@s	;i;.0;#@s	;/o;0;1{ ;io;";![o;+
+;![o;3;#@s	;io;2;["ng-leave;#@s	;io;2;["ng-leave-active;#@s	;i;.0;#@s	;/o;0;1{ ;i;#@s	;i;T;	[o;
+
+;@;["7/* OLD content ACTIVELY sliding OUT to the LEFT */;;;	[ ;i	o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	-15%;iì;i
+o;;@ ;@;[ ;"0;i ;i
+o;;@ ;@;[ ;"0;i ;i
+;i
+o;
+
+;@;["7/*.scroll { background: blue; } //for debugging */;;*;	[ ;i;io;;i ;@;["&.reverse;o; ;![o;";![o;+
+;![o;3;#" ;io;2;["reverse;#@©	;i;.0;#@©	;/o;0;1{ ;i;#@©	;i;T;	[	o;;i ;@;["5> .ng-enter, &.ng-enter, > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;i;.0;#@½	;/o;0;1{ ;io;";![o;+
+;![o;3;#@½	;io;2;["ng-enter;#@½	;i;.0;#@½	;/o;0;1{ ;io;";![">o;+
+;![o;2;["ng-leave;#@½	;i;.0;#@½	;/o;0;1{ ;io;";![o;+
+;![o;3;#@½	;io;2;["ng-leave;#@½	;i;.0;#@½	;/o;0;1{ ;i;#@½	;i;T;	[o;$;{ ;@;"transition;0;	[ ;[o;4	;@;[o;(	;@;"all;;);io;5	;@;"ios7-timing-function;6"ios7_timing_function;io;5	;@;"ios7-transition-duration;6"ios7_transition_duration;i;7;8;i;io;%;i ;@;["position;&;';o;(;@;"absolute;;);	[ ;io;%;i ;@;["top;&;';o;(;@;"0;;);	[ ;io;%;i ;@;["
+right;&;';o;(;@;"	-1px;;);	[ ;io;%;i ;@;["bottom;&;';o;(;@;"0;;);	[ ;io;%;i ;@;["	left;&;';o;(;@;"	-1px;;);	[ ;io;%;i ;@;["border-left;&;';o;(;@;"1px solid #ddd;;);	[ ;io;%;i ;@;["border-right;&;';o;(;@;"1px solid #ddd;;);	[ ;i;io;;i ;@;["> .ng-enter, &.ng-enter;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;i;.0;#@%
+;/o;0;1{ ;io;";![o;+
+;![o;3;#@%
+;io;2;["ng-enter;#@%
+;i;.0;#@%
+;/o;0;1{ ;i;#@%
+;i;T;	[o;
+
+;@;["H/* NEW content placed far LEFT BEFORE it slides IN from the LEFT */;;;	[ ;io;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"
+-100%;i—;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;i;io;;i ;@;["<> .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;io;2;["ng-enter-active;#@T
+;i;.0;#@T
+;/o;0;1{ ;io;";![o;+
+;![o;3;#@T
+;io;2;["ng-enter;#@T
+;io;2;["ng-enter-active;#@T
+;i;.0;#@T
+;/o;0;1{ ;i;#@T
+;i;T;	[o;
+
+;@;["8/* NEW content ACTIVELY sliding IN from the LEFT */;;;	[ ;io;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;io;
+
+;@;["9/*.scroll { background: orange; } //for debugging */;;*;	[ ;i ;io;;i ;@;["<> .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active;o; ;![o;";![">o;+
+;![o;2;["ng-leave;#" ;i"o;2;["ng-leave-active;#@‹
+;i";.0;#@‹
+;/o;0;1{ ;i"o;";![o;+
+;![o;3;#@‹
+;i"o;2;["ng-leave;#@‹
+;i"o;2;["ng-leave-active;#@‹
+;i";.0;#@‹
+;/o;0;1{ ;i";#@‹
+;i";T;	[o;
+
+;@;["8/* OLD content ACTIVELY sliding OUT to the RIGHT */;;;	[ ;i#o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"15%;i;i$o;;@ ;@;[ ;"0;i ;i$o;;@ ;@;[ ;"0;i ;i$;i$o;
+
+;@;["9/*.scroll { background: maroon; } //for debugging */;;*;	[ ;i%;i";i;ióo;;i ;@;[".slide-in-left;o; ;![o;";![o;+
+;![o;2;["slide-in-left;#" ;i,;.0;#@Ã
+;/o;0;1{ ;i,;#@Ã
+;i,;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"0%;i ;i-o;;@ ;@;[ ;"0;i ;i-o;;@ ;@;[ ;"0;i ;i-;i-o;;i ;@;["&.ng-enter, > .ng-enter;o; ;![o;";![o;+
+;![o;3;#" ;i.o;2;["ng-enter;#@á
+;i.;.0;#@á
+;/o;0;1{ ;i.o;";![">o;+
+;![o;2;["ng-enter;#@á
+;i.;.0;#@á
+;/o;0;1{ ;i.;#@á
+;i.;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInFromLeft;;);i/;i/o;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;i0;i0o;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);i1;i1o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i2;i2;i.o;;i ;@;["&.ng-leave, > .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;i4o;2;["ng-leave;#@;i4;.0;#@;/o;0;1{ ;i4o;";![">o;+
+;![o;2;["ng-leave;#@;i4;.0;#@;/o;0;1{ ;i4;#@;i4;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToLeft;;);i5;i5o;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;i6;i6o;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);i7;i7o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i8;i8;i4;i,o;;i ;@;[".slide-in-left-add;o; ;![o;";![o;+
+;![o;2;["slide-in-left-add;#" ;i=;.0;#@S;/o;0;1{ ;i=;#@S;i=;T;	[	o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	100%;ii;i>o;;@ ;@;[ ;"0;i ;i>o;;@ ;@;[ ;"0;i ;i>;i>o;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;i?;i?o;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);i@;i@o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);iA;iA;i=o;;i ;@;[".slide-in-left-add-active;o; ;![o;";![o;+
+;![o;2;["slide-in-left-add-active;#" ;iC;.0;#@‰;/o;0;1{ ;iC;#@‰;iC;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInFromLeft;;);iD;iD;iCo;;i ;@;[".slide-out-left;o; ;![o;";![o;+
+;![o;2;["slide-out-left;#" ;iG;.0;#@ ;/o;0;1{ ;iG;#@ ;iG;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"
+-100%;i—;iHo;;@ ;@;[ ;"0;i ;iHo;;@ ;@;[ ;"0;i ;iH;iHo;;i ;@;["&.ng-enter, > .ng-enter;o; ;![o;";![o;+
+;![o;3;#" ;iIo;2;["ng-enter;#@¾;iI;.0;#@¾;/o;0;1{ ;iIo;";![">o;+
+;![o;2;["ng-enter;#@¾;iI;.0;#@¾;/o;0;1{ ;iI;#@¾;iI;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToLeft;;);iJ;iJo;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;iK;iKo;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);iL;iLo;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);iM;iM;iIo;;i ;@;["&.ng-leave, > .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;iOo;2;["ng-leave;#@ö;iO;.0;#@ö;/o;0;1{ ;iOo;";![">o;+
+;![o;2;["ng-leave;#@ö;iO;.0;#@ö;/o;0;1{ ;iO;#@ö;iO;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToLeft;;);iP;iPo;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;iQ;iQo;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);iR;iRo;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);iS;iS;iO;iGo;;i ;@;[".slide-out-left;o; ;![o;";![o;+
+;![o;2;["slide-out-left;#" ;iW;.0;#@0;/o;0;1{ ;iW;#@0;iW;T;	[ ;iWo;;i ;@;[".slide-out-left-add;o; ;![o;";![o;+
+;![o;2;["slide-out-left-add;#" ;iZ;.0;#@@;/o;0;1{ ;iZ;#@@;iZ;T;	[	o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;i[o;;@ ;@;[ ;"0;i ;i[o;;@ ;@;[ ;"0;i ;i[;i[o;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;i\;i\o;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);i];i]o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i^;i^;iZo;;i ;@;[".slide-out-left-add-active;o; ;![o;";![o;+
+;![o;2;["slide-out-left-add-active;#" ;i`;.0;#@t;/o;0;1{ ;i`;#@t;i`;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToLeft;;);ia;ia;i`o;;i ;@;[".slide-in-right;o; ;![o;";![o;+
+;![o;2;["slide-in-right;#" ;id;.0;#@‹;/o;0;1{ ;id;#@‹;id;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"0%;i ;ieo;;@ ;@;[ ;"0;i ;ieo;;@ ;@;[ ;"0;i ;ie;ieo;;i ;@;["&.ng-enter, > .ng-enter;o; ;![o;";![o;+
+;![o;3;#" ;ifo;2;["ng-enter;#@©;if;.0;#@©;/o;0;1{ ;ifo;";![">o;+
+;![o;2;["ng-enter;#@©;if;.0;#@©;/o;0;1{ ;if;#@©;if;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInFromRight;;);ig;igo;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;ih;iho;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);ii;iio;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);ij;ij;ifo;;i ;@;["&.ng-leave, > .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;ilo;2;["ng-leave;#@á;il;.0;#@á;/o;0;1{ ;ilo;";![">o;+
+;![o;2;["ng-leave;#@á;il;.0;#@á;/o;0;1{ ;il;#@á;il;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInFromRight;;);im;imo;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;in;ino;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);io;ioo;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);ip;ip;il;ido;;i ;@;[".slide-in-right-add;o; ;![o;";![o;+
+;![o;2;["slide-in-right-add;#" ;it;.0;#@;/o;0;1{ ;it;#@;it;T;	[	o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"
+-100%;i—;iuo;;@ ;@;[ ;"0;i ;iuo;;@ ;@;[ ;"0;i ;iu;iuo;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;iv;ivo;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);iw;iwo;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);ix;ix;ito;;i ;@;[".slide-in-right-add-active;o; ;![o;";![o;+
+;![o;2;["slide-in-right-add-active;#" ;iz;.0;#@Q;/o;0;1{ ;iz;#@Q;iz;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInFromRight;;);i{;i{;izo;;i ;@;[".slide-out-right;o; ;![o;";![o;+
+;![o;2;["slide-out-right;#" ;i~;.0;#@h;/o;0;1{ ;i~;#@h;i~;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	100%;ii;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;io;;i ;@;["&.ng-enter, > .ng-enter;o; ;![o;";![o;+
+;![o;3;#" ;i€o;2;["ng-enter;#@†;i€;.0;#@†;/o;0;1{ ;i€o;";![">o;+
+;![o;2;["ng-enter;#@†;i€;.0;#@†;/o;0;1{ ;i€;#@†;i€;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToRight;;);i;io;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;i‚;i‚o;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);iƒ;iƒo;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i„;i„;i€o;;i ;@;["&.ng-leave, > .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;i†o;2;["ng-leave;#@¾;i†;.0;#@¾;/o;0;1{ ;i†o;";![">o;+
+;![o;2;["ng-leave;#@¾;i†;.0;#@¾;/o;0;1{ ;i†;#@¾;i†;T;	[	o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToRight;;);i‡;i‡o;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;iˆ;iˆo;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);i‰;i‰o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);iŠ;iŠ;i†;i~o;;i ;@;[".slide-out-right;o; ;![o;";![o;+
+;![o;2;["slide-out-right;#" ;i;.0;#@ø;/o;0;1{ ;i;#@ø;i;T;	[ ;io;;i ;@;[".slide-out-right-add;o; ;![o;";![o;+
+;![o;2;["slide-out-right-add;#" ;i;.0;#@;/o;0;1{ ;i;#@;i;T;	[	o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;i‘o;;@ ;@;[ ;"0;i ;i‘o;;@ ;@;[ ;"0;i ;i‘;i‘o;$;{ ;@;"animation-duration;0;	[ ;[o;5	;@;"transition-duration;6"transition_duration;i’;i’o;$;{ ;@;"animation-timing-function;0;	[ ;[o;(	;@;"ease-in-out;;);i“;i“o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i”;i”;io;;i ;@;[" .slide-out-right-add-active;o; ;![o;";![o;+
+;![o;2;["slide-out-right-add-active;#" ;i–;.0;#@<;/o;0;1{ ;i–;#@<;i–;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutToRight;;);i—;i—;i–o;;i ;@;[".slide-in-up;o; ;![o;";![o;+
+;![o;2;["slide-in-up;#" ;iš;.0;#@S;/o;0;1{ ;iš;#@S;iš;T;	[o;
+
+;@;["/* Start it down low */;;*;	[ ;i›o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;iœo;;[ ;@;["%;"0%;i ;iœo;;@ ;@;[ ;"0;i ;iœ;iœo;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;io;;i ;@;["&.ng-enter, .ng-enter;o; ;![o;";![o;+
+;![o;3;#" ;iŸo;2;["ng-enter;#@{;iŸ;.0;#@{;/o;0;1{ ;iŸo;";![o;+
+;![o;2;["ng-enter;#@{;iŸ;.0;#@{;/o;0;1{ ;iŸ;#@{;iŸ;T;	[o;
+
+;@;["/* Start it down low */;;*;	[ ;i o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;i¡o;;[ ;@;["%;"	100%;ii;i¡o;;@ ;@;[ ;"0;i ;i¡;i¡o;$;{ ;@;"animation-duration;0;	[ ;[o;;[ ;@;["ms;"
+400ms;i;i£;i£o;$;{ ;@;"animation-timing-function;0;	[ ;[o;5	;@;"slide-in-up-function;6"slide_in_up_function;i¤;i¤o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i¥;i¥o;
+
+;@;["/* Start hidden */;;*;	[ ;i¦o;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i§;iŸo;;i ;@;["(&.ng-enter-active, .ng-enter-active;o; ;![o;";![o;+
+;![o;3;#" ;iªo;2;["ng-enter-active;#@Ì;iª;.0;#@Ì;/o;0;1{ ;iªo;";![o;+
+;![o;2;["ng-enter-active;#@Ì;iª;.0;#@Ì;/o;0;1{ ;iª;#@Ì;iª;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInUp;;);i«;i«;iªo;;i ;@;["&.ng-leave, .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;i®o;2;["ng-leave;#@í;i®;.0;#@í;/o;0;1{ ;i®o;";![o;+
+;![o;2;["ng-leave;#@í;i®;.0;#@í;/o;0;1{ ;i®;#@í;i®;T;	[o;$;{ ;@;"animation-duration;0;	[ ;[o;;[ ;@;["ms;"
+400ms;i;i¯;i¯o;$;{ ;@;"animation-timing-function;0;	[ ;[o;5	;@;"slide-in-up-function;6"slide_in_up_function;i°;i°o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i±;i±;i®o;;i ;@;["!&.ng-leave-active, .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;i´o;2;["ng-leave-active;#@ ;i´;.0;#@ ;/o;0;1{ ;i´o;";![o;+
+;![o;2;["ng-leave;#@ ;i´;.0;#@ ;/o;0;1{ ;i´;#@ ;i´;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutUp;;);iµ;iµ;i´;išo;;i ;@;[".slide-in-up-add;o; ;![o;";![o;+
+;![o;2;["slide-in-up-add;#" ;i¹;.0;#@C;/o;0;1{ ;i¹;#@C;i¹;T;	[o;$;{ ;@;"animation-duration;0;	[ ;[o;;[ ;@;["ms;"
+400ms;i;iº;iºo;$;{ ;@;"animation-timing-function;0;	[ ;[o;5	;@;"slide-in-up-function;6"slide_in_up_function;i»;i»o;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"	both;;);i¼;i¼;i¹o;;i ;@;[".slide-in-up-add-active;o; ;![o;";![o;+
+;![o;2;["slide-in-up-add-active;#" ;i¾;.0;#@l;/o;0;1{ ;i¾;#@l;i¾;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideInUp;;);i¿;i¿;i¾o;;i ;@;[".slide-in-up-remove;o; ;![o;";![o;+
+;![o;2;["slide-in-up-remove;#" ;iÂ;.0;#@ƒ;/o;0;1{ ;iÂ;#@ƒ;iÂ;T;	[o;$;{ ;@;"animation-duration;0;	[ ;[o;;[ ;@;["ms;"
+400ms;i;iÃ;iÃo;$;{ ;@;"animation-timing-function;0;	[ ;[o;5	;@;"slide-in-up-function;6"slide_in_up_function;iÄ;iÄo;$;{ ;@;"animation-fill-mode;0;	[ ;[o;(	;@;"forwards;;);iÅ;iÅ;iÂo;;i ;@;[".slide-in-up-remove-active;o; ;![o;";![o;+
+;![o;2;["slide-in-up-remove-active;#" ;iÇ;.0;#@¬;/o;0;1{ ;iÇ;#@¬;iÇ;T;	[o;$;{ ;@;"animation-name;0;	[ ;[o;(	;@;"slideOutUp;;);iÈ;iÈ;iÇo;;i ;@;[".fade-in;o; ;![o;";![o;+
+;![o;2;["fade-in;#" ;iË;.0;#@Ã;/o;0;1{ ;iË;#@Ã;iË;T;	[o;$;{ ;@;"animation;0;	[ ;[o;4	;@;[o;(	;@;"fadeOut;;);iÌo;;[ ;@;["s;"	0.3s;f0.29999999999999999 33;iÌ;7;8;iÌ;iÌo;;i ;@;["&.active;o; ;![o;";![o;+
+;![o;3;#" ;iÍo;2;["active;#@à;iÍ;.0;#@à;/o;0;1{ ;iÍ;#@à;iÍ;T;	[o;$;{ ;@;"animation;0;	[ ;[o;4	;@;[o;(	;@;"fadeIn;;);iÎo;;[ ;@;["s;"	0.3s;f0.29999999999999999 33;iÎ;7;8;iÎ;iÎ;iÍ;iËo;;i ;@;[".fade-in-not-out;o; ;![o;";![o;+
+;![o;2;["fade-in-not-out;#" ;iÒ;.0;#@;/o;0;1{ ;iÒ;#@;iÒ;T;	[o;;i ;@;["&.ng-enter, .ng-enter;o; ;![o;";![o;+
+;![o;3;#" ;iÓo;2;["ng-enter;#@;iÓ;.0;#@;/o;0;1{ ;iÓo;";![o;+
+;![o;2;["ng-enter;#@;iÓ;.0;#@;/o;0;1{ ;iÓ;#@;iÓ;T;	[o;$;{ ;@;"animation;0;	[ ;[o;4	;@;[o;(	;@;"fadeIn;;);iÔo;;[ ;@;["s;"	0.3s;f0.29999999999999999 33;iÔ;7;8;iÔ;iÔo;%;i ;@;["position;&;';o;(;@;"relative;;);	[ ;iÕ;iÓo;;i ;@;["&.ng-leave, .ng-leave;o; ;![o;";![o;+
+;![o;3;#" ;i×o;2;["ng-leave;#@?;i×;.0;#@?;/o;0;1{ ;i×o;";![o;+
+;![o;2;["ng-leave;#@?;i×;.0;#@?;/o;0;1{ ;i×;#@?;i×;T;	[o;%;i ;@;["display;&;';o;(;@;"	none;;);	[ ;iØ;i×;iÒo;
+
+;@;["2/**
+ * Some component specific animations
+ */;;;	[ ;iİo;;0;@;"nav-title-slide-ios7-delay;o;;[ ;@;["ms;"
+350ms;i^;ià;	[ ;iào;;i ;@;[".nav-title-slide-ios7;o; ;![o;";![o;+
+;![o;2;["nav-title-slide-ios7;#" ;iá;.0;#@m;/o;0;1{ ;iá;#@m;iá;T;	[	o;;i ;@;["7> .ng-enter, &.ng-enter,
+  > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;iã;.0;#@~;/o;0;1{ ;ião;";![o;+
+;![o;3;#@~;ião;2;["ng-enter;#@~;iã;.0;#@~;/o;0;1{ ;ião;";!["
+">o;+
+;![o;2;["ng-leave;#@~;iã;.0;#@~;/o;0;1{ ;ião;";![o;+
+;![o;3;#@~;ião;2;["ng-leave;#@~;iã;.0;#@~;/o;0;1{ ;iã;#@~;iã;T;	[o;$;{ ;@;"transition;0;	[ ;[o;4	;@;[o;(	;@;"all;;);iäo;5	;@;"nav-title-slide-ios7-delay;6"nav_title_slide_ios7_delay;iä;7;8;iä;iäo;$;{ ;@;"transition-timing-function;0;	[ ;[o;5	;@;"ios7-timing-function;6"ios7_timing_function;iå;iåo;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;iæ;ião;;i ;@;["> .ng-enter, &.ng-enter;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iè;.0;#@È;/o;0;1{ ;ièo;";![o;+
+;![o;3;#@È;ièo;2;["ng-enter;#@È;iè;.0;#@È;/o;0;1{ ;iè;#@È;iè;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"30%;i#;iéo;;@ ;@;[ ;"0;i ;iéo;;@ ;@;[ ;"0;i ;ié;iéo;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;iê;ièo;;i ;@;["<> .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iìo;2;["ng-enter-active;#@ù;iì;.0;#@ù;/o;0;1{ ;iìo;";![o;+
+;![o;3;#@ù;iìo;2;["ng-enter;#@ù;iìo;2;["ng-enter-active;#@ù;iì;.0;#@ù;/o;0;1{ ;iì;#@ù;iì;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;iío;;@ ;@;[ ;"0;i ;iío;;@ ;@;[ ;"0;i ;ií;iío;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;iî;iìo;;i ;@;["<> .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active;o; ;![o;";![">o;+
+;![o;2;["ng-leave;#" ;iğo;2;["ng-leave-active;#@.;iğ;.0;#@.;/o;0;1{ ;iğo;";![o;+
+;![o;3;#@.;iğo;2;["ng-leave;#@.;iğo;2;["ng-leave-active;#@.;iğ;.0;#@.;/o;0;1{ ;iğ;#@.;iğ;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	-30%;iİ;iño;;@ ;@;[ ;"0;i ;iño;;@ ;@;[ ;"0;i ;iñ;iño;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;iò;iğ;iáo;;i ;@;[".reverse;o; ;![o;";![o;+
+;![o;2;["reverse;#" ;iö;.0;#@d;/o;0;1{ ;iö;#@d;iö;T;	[o;;i ;@;[".nav-title-slide-ios7;o; ;![o;";![o;+
+;![o;2;["nav-title-slide-ios7;#" ;i÷;.0;#@t;/o;0;1{ ;i÷;#@t;i÷;T;	[	o;;i ;@;["9> .ng-enter, &.ng-enter,
+    > .ng-leave, &.ng-leave;o; ;![	o;";![">o;+
+;![o;2;["ng-enter;#" ;iù;.0;#@…;/o;0;1{ ;iùo;";![o;+
+;![o;3;#@…;iùo;2;["ng-enter;#@…;iù;.0;#@…;/o;0;1{ ;iùo;";!["
+">o;+
+;![o;2;["ng-leave;#@…;iù;.0;#@…;/o;0;1{ ;iùo;";![o;+
+;![o;3;#@…;iùo;2;["ng-leave;#@…;iù;.0;#@…;/o;0;1{ ;iù;#@…;iù;T;	[o;$;{ ;@;"transition;0;	[ ;[o;4	;@;[o;(	;@;"all;;);iúo;5	;@;"nav-title-slide-ios7-delay;6"nav_title_slide_ios7_delay;iú;7;8;iú;iúo;$;{ ;@;"transition-timing-function;0;	[ ;[o;5	;@;"ios7-timing-function;6"ios7_timing_function;iû;iûo;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;iü;iùo;;i ;@;["> .ng-enter, &.ng-enter;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;iş;.0;#@Ï;/o;0;1{ ;işo;";![o;+
+;![o;3;#@Ï;işo;2;["ng-enter;#@Ï;iş;.0;#@Ï;/o;0;1{ ;iş;#@Ï;iş;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"	-30%;iİ;iÿo;;@ ;@;[ ;"0;i ;iÿo;;@ ;@;[ ;"0;i ;iÿ;iÿo;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i ;işo;;i ;@;["<> .ng-enter.ng-enter-active, &.ng-enter.ng-enter-active;o; ;![o;";![">o;+
+;![o;2;["ng-enter;#" ;io;2;["ng-enter-active;#@ ;i;.0;#@ ;/o;0;1{ ;io;";![o;+
+;![o;3;#@ ;io;2;["ng-enter;#@ ;io;2;["ng-enter-active;#@ ;i;.0;#@ ;/o;0;1{ ;i;#@ ;i;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;io;%;i ;@;["opacity;&;';o;(;@;"1;;);	[ ;i;io;;i ;@;["<> .ng-leave.ng-leave-active, &.ng-leave.ng-leave-active;o; ;![o;";![">o;+
+;![o;2;["ng-leave;#" ;io;2;["ng-leave-active;#@5;i;.0;#@5;/o;0;1{ ;io;";![o;+
+;![o;3;#@5;io;2;["ng-leave;#@5;io;2;["ng-leave-active;#@5;i;.0;#@5;/o;0;1{ ;i;#@5;i;T;	[o;$;{ ;@;"translate3d;0;	[ ;[o;;[ ;@;["%;"30%;i#;io;;@ ;@;[ ;"0;i ;io;;@ ;@;[ ;"0;i ;i;io;%;i ;@;["opacity;&;';o;(;@;"0;;);	[ ;i;i;i÷;iö;i
