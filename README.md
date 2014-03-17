@@ -1,4 +1,4 @@
-![Iconos Metro DF](https://www.dropbox.com/s/959w35kc8da1wna/icons-metro-css.jpg "Iconos Metro DF")
+![ScreenShot](https://www.dropbox.com/s/959w35kc8da1wna/icons-metro-css.jpg)
 
 
 # Icons Metro DF
