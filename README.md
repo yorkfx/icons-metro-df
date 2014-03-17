@@ -1,4 +1,4 @@
-<img src="https://www.dropbox.com/s/959w35kc8da1wna/icons-metro-css.jpg">
+<img src="http://www.dropbox.com/s/959w35kc8da1wna/icons-metro-css.jpg" alt="Iconos Metro DF">
 # Icons Metro DF
 
 Desarrollo por Miguel Mendez [@yorkfx](https://twitter.com/yorkfx) 
